@@ -8,6 +8,7 @@ TagManager:
   - RecoilCam
   - Bullet
   - HUD
+  - GroundCheck
   layers:
   - Default
   - TransparentFX
