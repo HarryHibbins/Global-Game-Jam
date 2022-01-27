@@ -7,9 +7,9 @@ public class WeaponStats : MonoBehaviour
 {
     [Header("------------Weapon Stats------------")] [Space(4)]
     public int damage;
-    public float timeBetweenShooting, range, reloadTime, timeBetweenShots;
+    public float timeBetweenShooting, range, reloadTime, timeBetweenShots, adsSpeed;
     public int magazineSize, bulletsPerTap;
-    public bool allowButtonHold, autoReload, usesShells;
+    public bool allowButtonHold, allowADS, autoReload, usesShells;
     private int bulletsLeft, bulletsShot;
 
     [Header("------------Recoil Stats------------")] [Space(4)]
@@ -31,6 +31,8 @@ public class WeaponStats : MonoBehaviour
     public LayerMask whatIsEnemy;
     public Animator animator;
     public Recoil recoilScript;
+    public Transform hipfirePos;
+    public Transform adsPos;
 
     [Header("------------GFX------------")] [Space(4)]
     public GameObject muzzleFlash;
@@ -39,7 +41,7 @@ public class WeaponStats : MonoBehaviour
 
     //Bools
     private bool shooting, readyToShoot, reloading;
-    public bool isFiring = false;
+    public bool isFiring, isADS;
 
     private void Awake()
     {
@@ -76,6 +78,17 @@ public class WeaponStats : MonoBehaviour
         {
             isFiring = false;
         }
+
+        if (isADS)
+        {
+            this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, adsPos.localPosition, adsSpeed * Time.deltaTime);
+            this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, adsPos.localRotation, adsSpeed * Time.deltaTime);
+        }
+        else
+        {
+            this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, hipfirePos.localPosition, adsSpeed * Time.deltaTime);
+            this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, hipfirePos.localRotation, adsSpeed * Time.deltaTime);
+        }
     }
 
     private void MyInput()
@@ -87,6 +100,18 @@ public class WeaponStats : MonoBehaviour
         else
         {
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        }
+
+        if (allowADS)
+        {
+            if (reloading)
+            {
+                isADS = false;
+            }
+            else
+            {
+                isADS = Input.GetKey(KeyCode.Mouse1);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)

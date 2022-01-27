@@ -8,7 +8,6 @@ public class Recoil : MonoBehaviour
     //Rotations
     private Vector3 currentRotation;
     private Vector3 targetRotation;
-    private float verticalCompensation = 0;
 
     //References
     public GameObject weaponHolder;
@@ -22,6 +21,8 @@ public class Recoil : MonoBehaviour
 
     void Update()
     {
+        isADS = weaponStats.isADS;
+
         targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, weaponStats.returnSpeed * Time.deltaTime);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, weaponStats.snapiness * Time.fixedDeltaTime);
         transform.localRotation = Quaternion.Euler(currentRotation);
