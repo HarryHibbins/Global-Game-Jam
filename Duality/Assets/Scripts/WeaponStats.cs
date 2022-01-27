@@ -5,34 +5,47 @@ using TMPro;
 
 public class WeaponStats : MonoBehaviour
 {
-    //Gun Stats
+    [Header("------------Weapon Stats------------")] [Space(4)]
     public int damage;
-    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
+    public float timeBetweenShooting, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold, autoReload, usesShells;
     private int bulletsLeft, bulletsShot;
 
-    //Bools
-    private bool shooting, readyToShoot, reloading;
+    [Header("------------Recoil Stats------------")] [Space(4)]
+    public float recoilX;
+    public float recoilY;
+    public float recoilZ;
+    [Space(2)]
+    public float aimRecoilX;
+    public float aimRecoilY;
+    public float aimRecoilZ;
+    [Space(2)]
+    public float snapiness;
+    public float returnSpeed;
 
-    //References
+    [Header("------------References------------")] [Space(4)]
     public Camera fpsCam;
     public Transform attackPoint;
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
     public Animator animator;
+    public Recoil recoilScript;
 
-    //Graphics
+    [Header("------------GFX------------")] [Space(4)]
     public GameObject muzzleFlash;
     public GameObject bulletHoleGraphic;
-    public CameraShake camShake;
-    public float camShakeMagnitude, camShakeDuration;
     public TextMeshProUGUI text;
+
+    //Bools
+    private bool shooting, readyToShoot, reloading;
+    public bool isFiring = false;
 
     private void Awake()
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        recoilScript = GameObject.FindGameObjectWithTag("RecoilCam").GetComponent<Recoil>();
     }
 
     private void OnEnable()
@@ -54,7 +67,15 @@ public class WeaponStats : MonoBehaviour
         {
             text.SetText(bulletsLeft + " / " + magazineSize);
         }
-        
+
+        if (shooting && !reloading && bulletsLeft > 0)
+        {
+            isFiring = true;
+        }
+        else
+        {
+            isFiring = false;
+        }
     }
 
     private void MyInput()
@@ -90,13 +111,8 @@ public class WeaponStats : MonoBehaviour
     {
         readyToShoot = false;
 
-        //Spread
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
-        float z = Random.Range(-spread, spread);
-
         //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(-x,-y,-z);
+        Vector3 direction = fpsCam.transform.forward;
 
         //RayCast
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
@@ -111,8 +127,7 @@ public class WeaponStats : MonoBehaviour
             Destroy(impactGO, 2f);
         }
 
-        //ShakeCamera
-        StartCoroutine(camShake.Shake(camShakeDuration, camShakeMagnitude));
+        recoilScript.RecoilFire();
 
         //Graphics
         GameObject flashGO = Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
