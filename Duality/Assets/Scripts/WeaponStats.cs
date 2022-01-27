@@ -38,16 +38,35 @@ public class WeaponStats : MonoBehaviour
     public GameObject muzzleFlash;
     public GameObject bulletHoleGraphic;
     public TextMeshProUGUI text;
+    private GameObject HUD;
+
 
     //Bools
     private bool shooting, readyToShoot, reloading;
     public bool isFiring, isADS;
+    
+    //Networking
+    private PlayerInstance playerInstance;
 
     private void Awake()
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
         recoilScript = GameObject.FindGameObjectWithTag("RecoilCam").GetComponent<Recoil>();
+        playerInstance = transform.root.GetComponent<PlayerInstance>();
+        
+        foreach (Transform child in transform.root)
+        {
+            if (child.CompareTag("HUD"))
+            {
+                HUD = child.gameObject;
+            }
+        }
+
+        //The ammo text must be the first child of HUD
+        text = HUD.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        
+
     }
 
     private void OnEnable()
@@ -58,37 +77,41 @@ public class WeaponStats : MonoBehaviour
 
     private void Update()
     {
-        MyInput();
+        if (playerInstance.view.IsMine)
+        {
+            MyInput();
 
-        //Set Text
-        if (usesShells)
-        {
-            text.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
-        }
-        else
-        {
-            text.SetText(bulletsLeft + " / " + magazineSize);
+            //Set Text
+            if (usesShells)
+            {
+                text.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+            }
+            else
+            {
+                text.SetText(bulletsLeft + " / " + magazineSize);
+            }
+
+            if (shooting && !reloading && bulletsLeft > 0)
+            {
+                isFiring = true;
+            }
+            else
+            {
+                isFiring = false;
+            }
+
+            if (isADS)
+            {
+                this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, adsPos.localPosition, adsSpeed * Time.deltaTime);
+                this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, adsPos.localRotation, adsSpeed * Time.deltaTime);
+            }
+            else
+            {
+                this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, hipfirePos.localPosition, adsSpeed * Time.deltaTime);
+                this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, hipfirePos.localRotation, adsSpeed * Time.deltaTime);
+            }
         }
 
-        if (shooting && !reloading && bulletsLeft > 0)
-        {
-            isFiring = true;
-        }
-        else
-        {
-            isFiring = false;
-        }
-
-        if (isADS)
-        {
-            this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, adsPos.localPosition, adsSpeed * Time.deltaTime);
-            this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, adsPos.localRotation, adsSpeed * Time.deltaTime);
-        }
-        else
-        {
-            this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, hipfirePos.localPosition, adsSpeed * Time.deltaTime);
-            this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, hipfirePos.localRotation, adsSpeed * Time.deltaTime);
-        }
     }
 
     private void MyInput()
