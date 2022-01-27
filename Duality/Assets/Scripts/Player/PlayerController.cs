@@ -95,6 +95,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         moveAmount = Vector3.SmoothDamp(moveAmount,
             moveDirection * (Input.GetButton("Sprint") ? sprintSpeed : walkSpeed),
             ref smoothMoveVelocity, smoothTime);
+
+        if (transform.position.y < -20f)
+        {
+            playerManager.Die();
+        }
     }
 
     private void Jump()
