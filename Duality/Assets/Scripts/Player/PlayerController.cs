@@ -5,7 +5,7 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
 
     [SerializeField] private GameObject cameraHolder;
@@ -23,12 +23,24 @@ public class PlayerController : MonoBehaviour
 
     private PhotonView PV;
 
-    void Start()
+    private const float maxHealth = 100f;
+    private float currentHealth = maxHealth;
+
+    private PlayerManager playerManager;
+
+    private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
         groundCheck = GetComponentInChildren<GroundCheckTag>().transform;
         PV = GetComponent<PhotonView>();
+
+        //Gets the player manager for the local player
+        playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+    }
+
+    void Start()
+    {
 
         if (!PV.IsMine)
         {
@@ -93,6 +105,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Runs on the shooters computer
+    public void TakeDamage(float damage)
+    {
+        //Calls the RPC called RPC_TakeDamage
+        PV.RPC("RPC_TakeDamage", RpcTarget.All, damage);
+    }
+
+    //Runs on everyone elses computer, but on the person hit will receive the damage because of the if !PV.Mine
+    [PunRPC]
+    void RPC_TakeDamage(float damage)
+    {
+        if (!PV.IsMine)
+        {
+            return;
+        }
+        Debug.Log("Took Damage: "+ damage);
+
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            playerManager.Die();
+        }
+    }
 
 
 }

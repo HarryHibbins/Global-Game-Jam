@@ -177,10 +177,9 @@ public class WeaponStats : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
-            if (rayHit.collider.CompareTag("Enemy"))
-            {
-                //Damage Enemy
-            }
+      
+            //If the hit object has the IDamagable interface, take damage equal to the weapon damage
+            rayHit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage);
 
             GameObject impactGO = Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.LookRotation(rayHit.normal));
             Destroy(impactGO, 2f);
