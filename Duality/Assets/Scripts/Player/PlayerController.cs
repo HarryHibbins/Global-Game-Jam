@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private float mouseSensitivty, sprintSpeed, walkSpeed, jumpForce, smoothTime;
-
+    [SerializeField] private Image healthBarImage;
     private float verticalLookRotation;
     private bool isGrounded;
     private Vector3 smoothMoveVelocity, moveAmount;
@@ -134,6 +134,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         Debug.Log("Took Damage: "+ damage);
 
         currentHealth -= damage;
+        //Gives a value between 0 and 1 for health 
+        healthBarImage.fillAmount = currentHealth / maxHealth;
 
         if (currentHealth <= 0)
         {
