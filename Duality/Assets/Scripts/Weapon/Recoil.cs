@@ -12,16 +12,16 @@ public class Recoil : MonoBehaviour
 
     //References
     public GameObject weaponHolder;
-    private WeaponStats weaponStats;
+    private WeaponScript weaponScript;
 
     //Networking
     private PhotonView PV; 
 
     void Start()
     {
-        weaponStats = weaponHolder.GetComponentInChildren<WeaponStats>();
+        weaponScript = weaponHolder.GetComponentInChildren<WeaponScript>();
         PV = transform.root.GetComponent<PhotonView>();
-
+        
 
     }
 
@@ -29,10 +29,10 @@ public class Recoil : MonoBehaviour
     {
         if (PV.IsMine)
         {
-            isADS = weaponStats.isADS;
+            isADS = weaponScript.isADS;
 
-            targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, weaponStats.returnSpeed * Time.deltaTime);
-            currentRotation = Vector3.Slerp(currentRotation, targetRotation, weaponStats.snapiness * Time.fixedDeltaTime);
+            targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, weaponScript.stats.returnSpeed * Time.deltaTime);
+            currentRotation = Vector3.Slerp(currentRotation, targetRotation, weaponScript.stats.snapiness * Time.fixedDeltaTime);
             transform.localRotation = Quaternion.Euler(currentRotation);
         }
    
@@ -44,15 +44,15 @@ public class Recoil : MonoBehaviour
         {
             if (isADS)
             {
-                targetRotation += new Vector3(weaponStats.aimRecoilX,
-                    Random.Range(-weaponStats.aimRecoilY, weaponStats.aimRecoilY),
-                    Random.Range(-weaponStats.aimRecoilZ, weaponStats.aimRecoilZ));
+                targetRotation += new Vector3(weaponScript.stats.aimRecoilX,
+                    Random.Range(-weaponScript.stats.aimRecoilY, weaponScript.stats.aimRecoilY),
+                    Random.Range(-weaponScript.stats.aimRecoilZ, weaponScript.stats.aimRecoilZ));
             }
             else
             {
-                targetRotation += new Vector3(weaponStats.recoilX,
-                    Random.Range(-weaponStats.recoilY, weaponStats.recoilY),
-                    Random.Range(-weaponStats.recoilZ, weaponStats.recoilZ));
+                targetRotation += new Vector3(weaponScript.stats.recoilX,
+                    Random.Range(-weaponScript.stats.recoilY, weaponScript.stats.recoilY),
+                    Random.Range(-weaponScript.stats.recoilZ, weaponScript.stats.recoilZ));
             }
         }
 

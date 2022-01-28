@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         if (PV.IsMine)
         {
-            transform.Find("CameraHolder/RecoilCam/WeaponHolder").GetComponentInChildren<WeaponStats>().AssignRecoilCam();
+            transform.Find("CameraHolder/RecoilCam/WeaponHolder").GetComponentInChildren<WeaponScript>().AssignRecoilCam();
         }
     }
 
