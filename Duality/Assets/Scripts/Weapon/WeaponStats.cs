@@ -55,7 +55,7 @@ public class WeaponStats : MonoBehaviour
         bulletsLeft = magazineSize;
         readyToShoot = true;
         recoilScript = GameObject.FindGameObjectWithTag("RecoilCam").GetComponent<Recoil>();
-        PV = transform.root.GetComponent<PhotonView>();
+        PV = GetComponent<PhotonView>();
 
         
         foreach (Transform child in transform.root)
@@ -192,16 +192,14 @@ public class WeaponStats : MonoBehaviour
       
             //If the hit object has the IDamagable interface, take damage equal to the weapon damage
             rayHit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage);
+            PV.RPC("RPC_Shoot", RpcTarget.All, rayHit.point, rayHit.normal);
 
-            GameObject impactGO = Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.LookRotation(rayHit.normal));
-            Destroy(impactGO, 2f);
+            
         }
 
         recoilScript.RecoilFire();
 
-        //Graphics
-        GameObject flashGO = Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
-        Destroy(flashGO, 0.15f);
+        
 
         bulletsLeft--;
         bulletsShot--;
@@ -215,6 +213,28 @@ public class WeaponStats : MonoBehaviour
         {
             Invoke("Shoot", timeBetweenShots);
         }
+    }
+
+    //Muzzle flash and bullet holes sent to all clients
+    [PunRPC]
+    void RPC_Shoot(Vector3 hitPos, Vector3 hitNormal)
+    {
+        GameObject flashGO = Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        Destroy(flashGO, 0.15f);
+        Debug.Log(hitPos);
+        
+        //returns an array of all colliders in a 0.3 radius
+        Collider[] colliders = Physics.OverlapSphere(hitPos, 0.3f);
+        if (colliders.Length != 0)
+        {
+            //Graphics
+            GameObject impactGO = Instantiate(bulletHoleGraphic, hitPos + hitNormal * 0.001f,
+                Quaternion.LookRotation(hitNormal));
+            Destroy(impactGO, 10f);
+            Debug.Log("bullet hole");
+            impactGO.transform.SetParent(colliders[0].transform);
+        }
+        
     }
 
     private void ResetShot()
