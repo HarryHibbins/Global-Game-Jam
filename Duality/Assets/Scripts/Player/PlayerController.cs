@@ -37,6 +37,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         //Gets the player manager for the local player
         playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+
+        if (PV.IsMine)
+        {
+            transform.Find("CameraHolder/RecoilCam/WeaponHolder").GetComponentInChildren<WeaponStats>().AssignRecoilCam();
+        }
     }
 
     void Start()
@@ -47,6 +52,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             //Destroy the camera and rigidbody of the other player 
             Destroy(GetComponentInChildren<Camera>().gameObject);
             Destroy(rb);
+            //Destroy(transform.Find("CameraHolder/RecoilCam/WeaponCam/WeaponHolder").gameObject);
         }
     }
 

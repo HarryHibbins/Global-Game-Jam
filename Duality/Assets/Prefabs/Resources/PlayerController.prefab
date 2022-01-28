@@ -1,80 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &246180943941584793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5589472106911297860}
-  - component: {fileID: 88373590636023806}
-  m_Layer: 0
-  m_Name: WeaponCam
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5589472106911297860
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246180943941584793}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1237027108889095549}
-  m_Father: {fileID: 6876706536100530057}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &88373590636023806
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246180943941584793}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 3
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.01
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 128
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1 &871437071391175420
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +137,8 @@ GameObject:
   - component: {fileID: 3857922567924923627}
   - component: {fileID: 8869223960032138883}
   - component: {fileID: 3942654951697492499}
+  - component: {fileID: 4696859269689501652}
+  - component: {fileID: 4651773651626092079}
   m_Layer: 7
   m_Name: Assault Rifle
   m_TagString: Untagged
@@ -267,7 +194,7 @@ MonoBehaviour:
   aimRecoilZ: 0.05
   snapiness: 6
   returnSpeed: 2
-  fpsCam: {fileID: 7825098694279817834}
+  fpsCam: {fileID: 0}
   attackPoint: {fileID: 7577672734497019697}
   whatIsEnemy:
     serializedVersion: 2
@@ -300,6 +227,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4696859269689501652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393872622840399343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &4651773651626092079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393872622840399343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Reloading
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &2484390061265078937
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +426,9 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4015635250258851596}
   - {fileID: 8544272636698320595}
+  - {fileID: 4696859269689501652}
+  - {fileID: 4651773651626092079}
+  - {fileID: 6600833436060755794}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -523,7 +490,7 @@ GameObject:
   - component: {fileID: 7825098694279817834}
   - component: {fileID: 4919793131534418035}
   m_Layer: 0
-  m_Name: ViewCamera
+  m_Name: ViewCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -715,8 +682,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4497672148909279909}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.282, y: -0.163, z: 0.676}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.282, y: 0.337, z: 0.676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3857922567924923627}
@@ -724,8 +691,8 @@ Transform:
   - {fileID: 2114743419026939387}
   - {fileID: 5232921590155706263}
   - {fileID: 5012805533431173232}
-  m_Father: {fileID: 5589472106911297860}
-  m_RootOrder: 0
+  m_Father: {fileID: 6876706536100530057}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4535491239682525646
 GameObject:
@@ -902,7 +869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 0
+  m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
@@ -930,7 +897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6342877605299859571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.294, y: 0.049, z: -0.343}
+  m_LocalPosition: {x: -0.294, y: 0.049, z: -0.234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1237027108889095549}
@@ -1418,6 +1385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6876706536100530057}
   - component: {fileID: 8269765716293218213}
+  - component: {fileID: 6600833436060755794}
   m_Layer: 0
   m_Name: RecoilCam
   m_TagString: RecoilCam
@@ -1437,7 +1405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3006485424937227972}
-  - {fileID: 5589472106911297860}
+  - {fileID: 1237027108889095549}
   m_Father: {fileID: 5746866352389285931}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1454,6 +1422,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 4497672148909279909}
+--- !u!114 &6600833436060755794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9066150976003127527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &9068604943246841122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,7 +1675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3305571932719233090, guid: f37000aba4c1e904f8db8c83dfe18e09, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.055
+      value: 0.166
       objectReference: {fileID: 0}
     - target: {fileID: 3305571932719233090, guid: f37000aba4c1e904f8db8c83dfe18e09, type: 3}
       propertyPath: m_LocalRotation.w

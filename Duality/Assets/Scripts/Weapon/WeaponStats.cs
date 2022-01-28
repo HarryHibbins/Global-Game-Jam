@@ -47,7 +47,6 @@ public class WeaponStats : MonoBehaviour
     public bool isFiring, isADS;
     
     //Networking
-    //private PlayerInstance playerInstance;
     private PhotonView PV; 
 
 
@@ -72,18 +71,31 @@ public class WeaponStats : MonoBehaviour
         
         if (!PV.IsMine)
         {
-            //Destroy the camera and rigidbody of the other player 
+            //Destroy the HUD of the other player 
             Destroy(HUD);
-           
         }
-        
+        else
+        {
+            AssignRecoilCam();
+        }
+      
 
+    }
+
+    public void AssignRecoilCam()
+    {
+        //Assign the recoil camera 
+        fpsCam = transform.root.Find("CameraHolder/RecoilCam/ViewCam").GetComponent<Camera>();
     }
 
     private void OnEnable()
     {
-        reloading = false;
-        animator.SetBool("Reloading", false);
+        if (PV.IsMine)
+        {
+            reloading = false;
+            animator.SetBool("Reloading", false);
+        }
+     
     }
 
     private void Update()
@@ -212,9 +224,12 @@ public class WeaponStats : MonoBehaviour
 
     private void Reload()
     {
-        reloading = true;
-        StartCoroutine(ReloadAnim());
-        Invoke("ReloadFinished", reloadTime);
+        if (PV.IsMine)
+        {
+            reloading = true;
+            StartCoroutine(ReloadAnim());
+            Invoke("ReloadFinished", reloadTime);   
+        }
     }
 
     private void ReloadFinished()

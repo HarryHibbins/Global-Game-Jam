@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class Recoil : MonoBehaviour
@@ -13,31 +14,47 @@ public class Recoil : MonoBehaviour
     public GameObject weaponHolder;
     private WeaponStats weaponStats;
 
+    //Networking
+    private PhotonView PV; 
 
     void Start()
     {
         weaponStats = weaponHolder.GetComponentInChildren<WeaponStats>();
+        PV = transform.root.GetComponent<PhotonView>();
+
+
     }
 
     void Update()
     {
-        isADS = weaponStats.isADS;
+        if (PV.IsMine)
+        {
+            isADS = weaponStats.isADS;
 
-        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, weaponStats.returnSpeed * Time.deltaTime);
-        currentRotation = Vector3.Slerp(currentRotation, targetRotation, weaponStats.snapiness * Time.fixedDeltaTime);
-        transform.localRotation = Quaternion.Euler(currentRotation);
+            targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, weaponStats.returnSpeed * Time.deltaTime);
+            currentRotation = Vector3.Slerp(currentRotation, targetRotation, weaponStats.snapiness * Time.fixedDeltaTime);
+            transform.localRotation = Quaternion.Euler(currentRotation);
+        }
+   
     }
 
     public void RecoilFire()
     {
-        if (isADS)
+        if (PV.IsMine)
         {
-            targetRotation += new Vector3(weaponStats.aimRecoilX, Random.Range(-weaponStats.aimRecoilY, weaponStats.aimRecoilY), Random.Range(-weaponStats.aimRecoilZ, weaponStats.aimRecoilZ));
+            if (isADS)
+            {
+                targetRotation += new Vector3(weaponStats.aimRecoilX,
+                    Random.Range(-weaponStats.aimRecoilY, weaponStats.aimRecoilY),
+                    Random.Range(-weaponStats.aimRecoilZ, weaponStats.aimRecoilZ));
+            }
+            else
+            {
+                targetRotation += new Vector3(weaponStats.recoilX,
+                    Random.Range(-weaponStats.recoilY, weaponStats.recoilY),
+                    Random.Range(-weaponStats.recoilZ, weaponStats.recoilZ));
+            }
         }
-        else 
-        {
-            targetRotation += new Vector3(weaponStats.recoilX, Random.Range(-weaponStats.recoilY, weaponStats.recoilY), Random.Range(-weaponStats.recoilZ, weaponStats.recoilZ));
-        }
-        
+
     }
 }
