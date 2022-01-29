@@ -27,4 +27,7 @@ public class WeaponStats : ScriptableObject
     [Space(2)]
     public float snapiness;
     public float returnSpeed;
+
+    [Header("------------Weapon Model------------")]
+    public GameObject gunModel;
 }

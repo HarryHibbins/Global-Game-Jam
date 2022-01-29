@@ -14,13 +14,20 @@ public class WeaponSwitcher : MonoBehaviour
         if (Input.mouseScrollDelta.y > 0 && currentWeapon < weaponList.Count -1)
         {
             currentWeapon++;
-            
+            UpdateGun();
         }
         if (Input.mouseScrollDelta.y < 0 && currentWeapon > 0)
         {
             currentWeapon--;
-            
+            UpdateGun();
         }
+    }
+
+    void UpdateGun()
+    {
         weaponScript.stats = weaponList[currentWeapon];
+        weaponScript.bulletsLeft = weaponScript.stats.magazineSize;
+        weaponScript.bulletsShot = 0;
+        weaponScript.AssignModel();
     }
 }

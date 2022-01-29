@@ -6,7 +6,7 @@ using TMPro;
 
 public class WeaponScript : MonoBehaviour
 {
-    private int bulletsLeft, bulletsShot;
+    public int bulletsLeft, bulletsShot;
 
     [Header("------------References------------")] [Space(4)]
     public WeaponStats stats;
@@ -65,8 +65,8 @@ public class WeaponScript : MonoBehaviour
         {
             AssignRecoilCam();
         }
-      
 
+        AssignModel();
     }
 
     public void AssignRecoilCam()
@@ -83,6 +83,24 @@ public class WeaponScript : MonoBehaviour
             animator.SetBool("Reloading", false);
         }
      
+    }
+
+    public void AssignModel()
+    {
+        foreach (Transform child in this.gameObject.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        GameObject weaponModel = Instantiate(stats.gunModel, Vector3.zero, Quaternion.identity, this.gameObject.transform);
+        weaponModel.transform.localPosition = Vector3.zero;
+        weaponModel.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        foreach (Transform child in weaponModel.transform)
+        {
+            if (child.tag == "FiringPoint")
+            {
+                attackPoint = child;
+            }
+        }
     }
 
     private void Update()
@@ -276,6 +294,7 @@ public class WeaponScript : MonoBehaviour
     {
         if (PV.IsMine)
         {
+            animator.applyRootMotion = false;
             reloading = true;
             StartCoroutine(ReloadAnim());
             Invoke("ReloadFinished", stats.reloadTime);   
@@ -284,7 +303,7 @@ public class WeaponScript : MonoBehaviour
 
     private void ReloadFinished()
     {
-        
+        animator.applyRootMotion = true;
         bulletsLeft = stats.magazineSize;
         reloading = false;
     }
