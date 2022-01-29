@@ -11,8 +11,6 @@ public class WeaponSwitcher : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Input.mouseScrollDelta);
-
         if (Input.mouseScrollDelta.y > 0 && currentWeapon < weaponList.Count -1)
         {
             currentWeapon++;

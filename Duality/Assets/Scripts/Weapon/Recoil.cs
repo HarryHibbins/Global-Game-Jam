@@ -29,7 +29,7 @@ public class Recoil : MonoBehaviour
     {
         if (PV.IsMine)
         {
-            isADS = weaponScript.isADS;
+            isADS = weaponScript.isADSing;
 
             targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, weaponScript.stats.returnSpeed * Time.deltaTime);
             currentRotation = Vector3.Slerp(currentRotation, targetRotation, weaponScript.stats.snapiness * Time.fixedDeltaTime);

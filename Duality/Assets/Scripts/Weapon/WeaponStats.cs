@@ -10,7 +10,7 @@ public class WeaponStats : ScriptableObject
 
     [Header("------------Weapon Stats------------")] [Space(4)]
     public int damage;
-    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots, adsSpeed;
+    public float timeBetweenShooting, spread, adsSpread, range, reloadTime, timeBetweenShots, adsSpeed;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold, allowADS, autoReload, usesShells;
 

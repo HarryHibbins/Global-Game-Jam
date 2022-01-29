@@ -29,11 +29,10 @@ public class WeaponScript : MonoBehaviour
 
     //Bools
     private bool shooting, readyToShoot, reloading;
-    public bool isFiring, isADS;
+    public bool isFiring, isADS, isADSing;
     
     //Networking
-    private PhotonView PV; 
-
+    private PhotonView PV;
 
     private void Awake()
     {
@@ -122,6 +121,18 @@ public class WeaponScript : MonoBehaviour
                 this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, hipfirePos.localPosition, stats.adsSpeed * Time.deltaTime);
                 this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, hipfirePos.localRotation, stats.adsSpeed * Time.deltaTime);
             }
+
+            float xPosThis = Mathf.Round(this.gameObject.transform.localPosition.x * 10f) * 0.1f;
+            float xPosThat = Mathf.Round(adsPos.transform.localPosition.x * 10f) * 0.1f; 
+
+            if (Mathf.Approximately(xPosThis, xPosThat))
+            {
+                isADSing = true;
+            }
+            else
+            {
+                isADSing = false;
+            }
         }
 
     }
@@ -174,15 +185,31 @@ public class WeaponScript : MonoBehaviour
         float y;
 
         //Spread
-        if (stats.spread != 0)
+        if (isADSing)
         {
-            x = Random.Range(-stats.spread, stats.spread);
-            y = Random.Range(-stats.spread, stats.spread);
+            if (stats.adsSpread != 0)
+            {
+                x = Random.Range(-stats.adsSpread, stats.adsSpread);
+                y = Random.Range(-stats.adsSpread, stats.adsSpread);
+            }
+            else
+            {
+                x = 0;
+                y = 0;
+            }
         }
         else
         {
-            x = 0;
-            y = 0;
+            if (stats.spread != 0)
+            {
+                x = Random.Range(-stats.spread, stats.spread);
+                y = Random.Range(-stats.spread, stats.spread);
+            }
+            else
+            {
+                x = 0;
+                y = 0;
+            }
         }
 
         //Calculate Direction with Spread
