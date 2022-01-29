@@ -10,28 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c6023d09833e1b40a9c00656b103241, type: 3}
-  m_Name: SMG
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  weaponName: SMG
+  weaponName: Pistol
   damage: 10
-  timeBetweenShooting: 0.02
+  timeBetweenShooting: 0.06
   spread: 0
   adsSpread: 0
-  range: 100
-  reloadTime: 0.7
+  range: 50
+  reloadTime: 1
   timeBetweenShots: 0
   adsSpeed: 15
-  magazineSize: 30
+  magazineSize: 15
   bulletsPerTap: 1
-  allowButtonHold: 1
+  allowButtonHold: 0
   allowADS: 1
   autoReload: 0
   usesShells: 0
-  recoilX: -0.6
-  recoilY: 1.5
-  recoilZ: 0.15
-  aimRecoilX: -0.3
-  aimRecoilY: 1
-  aimRecoilZ: 0.15
+  recoilX: -2
+  recoilY: 1
+  recoilZ: 0.05
+  aimRecoilX: -1
+  aimRecoilY: 0.5
+  aimRecoilZ: 0.05
   snapiness: 6
-  returnSpeed: 2.5
+  returnSpeed: 2

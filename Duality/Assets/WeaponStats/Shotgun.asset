@@ -16,6 +16,7 @@ MonoBehaviour:
   damage: 20
   timeBetweenShooting: 1
   spread: 0.06
+  adsSpread: 0
   range: 10
   reloadTime: 2
   timeBetweenShots: 0
@@ -26,7 +27,7 @@ MonoBehaviour:
   allowADS: 0
   autoReload: 0
   usesShells: 1
-  recoilX: 2.5
+  recoilX: -2.5
   recoilY: 1
   recoilZ: 0.15
   aimRecoilX: 0
