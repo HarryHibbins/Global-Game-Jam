@@ -1471,7 +1471,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 498653777}
 --- !u!33 &293408192
@@ -3398,7 +3398,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh301176
+  m_Name: pb_Mesh1154094
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
