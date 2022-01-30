@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class WeaponSwitcher : MonoBehaviour
 {
@@ -9,17 +10,27 @@ public class WeaponSwitcher : MonoBehaviour
 
     public int currentWeapon = 0;
 
+    public PhotonView PV;
+
+    private void Awake()
+    {
+        PV = GetComponent<PhotonView>();
+    }
+
     private void Update()
     {
-        if (Input.mouseScrollDelta.y > 0 && currentWeapon < weaponList.Count -1)
+        if (PV.IsMine)
         {
-            currentWeapon++;
-            UpdateGun();
-        }
-        if (Input.mouseScrollDelta.y < 0 && currentWeapon > 0)
-        {
-            currentWeapon--;
-            UpdateGun();
+            if (Input.mouseScrollDelta.y > 0 && currentWeapon < weaponList.Count - 1)
+            {
+                currentWeapon++;
+                UpdateGun();
+            }
+            if (Input.mouseScrollDelta.y < 0 && currentWeapon > 0)
+            {
+                currentWeapon--;
+                UpdateGun();
+            }
         }
     }
 
