@@ -35,4 +35,4 @@ MonoBehaviour:
   aimRecoilZ: 0.05
   snapiness: 6
   returnSpeed: 2
-  gunModel: {fileID: 6513462501660768856, guid: f37000aba4c1e904f8db8c83dfe18e09, type: 3}
+  gunModel: {fileID: 6513462501660768856, guid: 8c8d864bcd4d12f488efa9f8477e3200, type: 3}

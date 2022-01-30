@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
 
     [SerializeField] private GameObject cameraHolder;
-    [SerializeField] private float mouseSensitivty, sprintSpeed, walkSpeed, jumpForce, smoothTime;
+    [SerializeField] private float sprintSpeed, walkSpeed, jumpForce, smoothTime;
+    public float currentSensitivity, unScopedSensitivity, scopedSensitivity;
     [SerializeField] private Image healthBarImage;
     private float verticalLookRotation;
     private bool isGrounded;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     private void Awake()
     {
+        currentSensitivity = unScopedSensitivity;
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
         groundCheck = GetComponentInChildren<GroundCheckTag>().transform;
@@ -83,9 +85,9 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     private void Look()
     {
-        transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivty);
+        transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * currentSensitivity);
 
-        verticalLookRotation += Input.GetAxisRaw("Mouse Y") * mouseSensitivty;
+        verticalLookRotation += Input.GetAxisRaw("Mouse Y") * currentSensitivity;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
 
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;

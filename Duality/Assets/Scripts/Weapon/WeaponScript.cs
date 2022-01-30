@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class WeaponScript : MonoBehaviour
 {
     public int bulletsLeft, bulletsShot;
+    private float startFOV;
 
     [Header("------------References------------")] [Space(4)]
     public WeaponStats stats;
@@ -18,6 +20,8 @@ public class WeaponScript : MonoBehaviour
     public Recoil recoilScript;
     public Transform hipfirePos;
     public Transform adsPos;
+    private GameObject weapon;
+    public PlayerController playerController;
 
     [Header("------------GFX------------")] [Space(4)]
     public GameObject muzzleFlash;
@@ -25,6 +29,8 @@ public class WeaponScript : MonoBehaviour
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI nameText;
     private GameObject HUD;
+    public Image scopeSprite;
+    public Image crosshair;
 
 
     //Bools
@@ -36,11 +42,12 @@ public class WeaponScript : MonoBehaviour
 
     private void Awake()
     {
+        startFOV = fpsCam.fieldOfView;
         bulletsLeft = stats.magazineSize;
         readyToShoot = true;
         recoilScript = GameObject.FindGameObjectWithTag("RecoilCam").GetComponent<Recoil>();
         PV = GetComponent<PhotonView>();
-
+        playerController = GetComponentInParent<PlayerController>();
         
         foreach (Transform child in transform.root)
         {
@@ -55,6 +62,12 @@ public class WeaponScript : MonoBehaviour
 
         //The weapon name Text must be the second child of HUD
         nameText = HUD.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        //Scope image muse be the third child of the HUD
+        scopeSprite = HUD.transform.GetChild(2).GetComponent<Image>();
+
+        //Scope image muse be the fourth child of the HUD
+        crosshair = HUD.transform.GetChild(3).GetComponent<Image>();
 
         if (!PV.IsMine)
         {
@@ -91,10 +104,10 @@ public class WeaponScript : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        GameObject weaponModel = Instantiate(stats.gunModel, Vector3.zero, Quaternion.identity, this.gameObject.transform);
-        weaponModel.transform.localPosition = Vector3.zero;
-        weaponModel.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        foreach (Transform child in weaponModel.transform)
+        weapon = Instantiate(stats.gunModel, Vector3.zero, Quaternion.identity, this.gameObject.transform);
+        weapon.transform.localPosition = Vector3.zero;
+        weapon.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        foreach (Transform child in weapon.transform)
         {
             if (child.tag == "FiringPoint")
             {
@@ -150,6 +163,23 @@ public class WeaponScript : MonoBehaviour
             else
             {
                 isADSing = false;
+            }
+
+            if (stats.usesScope && isADSing)
+            {
+                scopeSprite.enabled = true;
+                weapon.gameObject.SetActive(false);
+                crosshair.enabled = false;
+                fpsCam.fieldOfView = 12f;
+                playerController.currentSensitivity = playerController.scopedSensitivity;
+            }
+            else
+            {
+                scopeSprite.enabled = false;
+                weapon.gameObject.SetActive(true);
+                crosshair.enabled = true;
+                fpsCam.fieldOfView = startFOV;
+                playerController.currentSensitivity = playerController.unScopedSensitivity;
             }
         }
 

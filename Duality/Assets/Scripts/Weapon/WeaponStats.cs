@@ -12,7 +12,7 @@ public class WeaponStats : ScriptableObject
     public int damage;
     public float timeBetweenShooting, spread, adsSpread, range, reloadTime, timeBetweenShots, adsSpeed;
     public int magazineSize, bulletsPerTap;
-    public bool allowButtonHold, allowADS, autoReload, usesShells;
+    public bool allowButtonHold, allowADS, autoReload, usesShells, usesScope;
 
     [Tooltip("X = Up, Y = Left/Right")]
     [Header("------------Recoil Stats------------")]
