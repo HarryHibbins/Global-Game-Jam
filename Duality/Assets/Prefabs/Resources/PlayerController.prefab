@@ -94,7 +94,7 @@ MonoBehaviour:
   bulletsLeft: 0
   bulletsShot: 0
   stats: {fileID: 11400000, guid: 5e1f613a70a1eac4e9529c66315fcdd4, type: 2}
-  fpsCam: {fileID: 0}
+  fpsCam: {fileID: 7825098694279817834}
   attackPoint: {fileID: 7577672734497019697}
   whatIsEnemy:
     serializedVersion: 2
@@ -108,6 +108,7 @@ MonoBehaviour:
   bulletHoleGraphic: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
   ammoText: {fileID: 4349318735152196271}
   nameText: {fileID: 7742633585326448021}
+  HUD: {fileID: 4535491239682525646}
   scopeSprite: {fileID: 3100298185385573528}
   crosshair: {fileID: 0}
   isFiring: 0

@@ -28,7 +28,7 @@ public class WeaponScript : MonoBehaviour
     public GameObject bulletHoleGraphic;
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI nameText;
-    private GameObject HUD;
+    public GameObject HUD;
     public Image scopeSprite;
     public Image crosshair;
 
@@ -48,7 +48,7 @@ public class WeaponScript : MonoBehaviour
         recoilScript = GameObject.FindGameObjectWithTag("RecoilCam").GetComponent<Recoil>();
         PV = GetComponent<PhotonView>();
         playerController = GetComponentInParent<PlayerController>();
-        
+
         foreach (Transform child in transform.root)
         {
             if (child.CompareTag("HUD"))
@@ -56,6 +56,7 @@ public class WeaponScript : MonoBehaviour
                 HUD = child.gameObject;
             }
         }
+
 
         //The ammo Text must be the first child of HUD
         ammoText = HUD.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -78,14 +79,13 @@ public class WeaponScript : MonoBehaviour
         {
             AssignRecoilCam();
         }
-
         AssignModel();
     }
 
     public void AssignRecoilCam()
     {
         //Assign the recoil camera 
-        fpsCam = transform.root.Find("CameraHolder/RecoilCam/ViewCam").GetComponent<Camera>();
+        //fpsCam = transform.root.Find("CameraHolder/RecoilCam/ViewCam").GetComponent<Camera>();
     }
 
     private void OnEnable()
