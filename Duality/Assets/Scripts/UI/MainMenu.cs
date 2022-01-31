@@ -9,4 +9,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Loading");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        //UnityEditor.EditorApplication.isPlaying = false;
+    }
 }
