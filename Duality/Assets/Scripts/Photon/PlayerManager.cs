@@ -10,12 +10,13 @@ public class PlayerManager : MonoBehaviour
 {
     // References
     private PhotonView PV;
-    private Player player;
+    public Player player;
     private GameObject controller;
 
     //Player Stats
     public string NickName;
     public string ID;
+    public string _ID;
     public int kills;
     public int deaths;
 
@@ -32,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         NickName = PV.Owner.NickName;
-        //ID = PV.Owner.UserId;
+        ID = PV.Owner.UserId;
     }
 
     private void createController()
@@ -45,7 +46,6 @@ public class PlayerManager : MonoBehaviour
     {
         //Destroy the player
         PhotonNetwork.Destroy(controller);
-        deaths++;
         //Respawn
         createController();
         

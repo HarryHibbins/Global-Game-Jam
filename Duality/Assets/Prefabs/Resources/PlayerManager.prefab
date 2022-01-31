@@ -68,5 +68,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NickName: 
   ID: 
+  _ID: 
   kills: 0
   deaths: 0

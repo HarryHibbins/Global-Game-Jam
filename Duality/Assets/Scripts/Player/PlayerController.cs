@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
@@ -145,9 +147,16 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         if (currentHealth <= 0)
         {
-            playerManager.deaths++;
-            PhotonView.Find(info.photonView.ViewID).gameObject.GetComponent<PlayerController>().playerManager.kills++;
             playerManager.Die();
+            Debug.Log(info.Sender);
+            PlayerManager[] pms = FindObjectsOfType<PlayerManager>();
+            foreach (PlayerManager pm in pms)
+            {
+                if (pm.ID == info.Sender.UserId)
+                {
+                    pm.kills++;
+                }
+            }
         }
     }
 }

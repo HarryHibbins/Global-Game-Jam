@@ -143,47 +143,67 @@ public class WeaponScript : MonoBehaviour
                 isFiring = false;
             }
 
-            if (isADS)
-            {
-                this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, adsPos.localPosition, stats.adsSpeed * Time.deltaTime);
-                this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, adsPos.localRotation, stats.adsSpeed * Time.deltaTime);
-            }
-            else
-            {
-                this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, hipfirePos.localPosition, stats.adsSpeed * Time.deltaTime);
-                this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, hipfirePos.localRotation, stats.adsSpeed * Time.deltaTime);
-            }
-
-            float xPosThis = Mathf.Round(this.gameObject.transform.localPosition.x * 10f) * 0.1f;
-            float xPosThat = Mathf.Round(adsPos.transform.localPosition.x * 10f) * 0.1f; 
-
-            if (Mathf.Approximately(xPosThis, xPosThat))
-            {
-                isADSing = true;
-            }
-            else
-            {
-                isADSing = false;
-            }
-
-            if (stats.usesScope && isADSing)
-            {
-                scopeSprite.enabled = true;
-                weapon.gameObject.SetActive(false);
-                crosshair.enabled = false;
-                fpsCam.fieldOfView = 12f;
-                playerController.currentSensitivity = playerController.scopedSensitivity;
-            }
-            else
-            {
-                scopeSprite.enabled = false;
-                weapon.gameObject.SetActive(true);
-                crosshair.enabled = true;
-                fpsCam.fieldOfView = startFOV;
-                playerController.currentSensitivity = playerController.unScopedSensitivity;
-            }
+            ADSLogic();
         }
 
+    }
+
+    private void ADSLogic()
+    {
+        // Moving Weapon when ADS to look down sights
+        if (isADS)
+        {
+            this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, adsPos.localPosition, stats.adsSpeed * Time.deltaTime);
+            this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, adsPos.localRotation, stats.adsSpeed * Time.deltaTime);
+        }
+        else
+        {
+            this.gameObject.transform.localPosition = Vector3.Lerp(this.transform.localPosition, hipfirePos.localPosition, stats.adsSpeed * Time.deltaTime);
+            this.gameObject.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, hipfirePos.localRotation, stats.adsSpeed * Time.deltaTime);
+        }
+
+        // Checks for when player is actually looking down sights. This prevents tapping ads for an accurate shot with a sniper for example.
+        float xPosThis = Mathf.Round(this.gameObject.transform.localPosition.x * 10f) * 0.1f;
+        float xPosThat = Mathf.Round(adsPos.transform.localPosition.x * 10f) * 0.1f;
+        if (Mathf.Approximately(xPosThis, xPosThat))
+        {
+            isADSing = true;
+        }
+        else
+        {
+            isADSing = false;
+        }
+
+
+        // Manages FOV for ADS/Scoping & Disabling UI elements for scope
+        if (isADSing && !stats.usesScope)
+        {
+            fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 45f, stats.adsSpeed * Time.deltaTime);
+        }
+        else if (!stats.usesScope)
+        {
+            fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, startFOV, stats.adsSpeed * Time.deltaTime);
+        }
+        else 
+        {
+            fpsCam.fieldOfView = startFOV;
+        }
+
+        if (stats.usesScope && isADSing)
+        {
+            scopeSprite.enabled = true;
+            weapon.gameObject.SetActive(false);
+            crosshair.enabled = false;
+            fpsCam.fieldOfView = 12f;
+            playerController.currentSensitivity = playerController.scopedSensitivity;
+        }
+        else
+        {
+            scopeSprite.enabled = false;
+            weapon.gameObject.SetActive(true);
+            crosshair.enabled = true;
+            playerController.currentSensitivity = playerController.unScopedSensitivity;
+        }
     }
 
     private void MyInput()
