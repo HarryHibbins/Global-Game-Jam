@@ -266,7 +266,7 @@ public class WeaponScript : MonoBehaviour
         //RayCast
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, stats.range, whatIsEnemy))
         {
-            Debug.Log(rayHit.collider.name);
+            //Debug.Log(rayHit.collider.name);
       
             //If the hit object has the IDamagable interface, take damage equal to the weapon damage
             rayHit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(stats.damage);
@@ -299,7 +299,7 @@ public class WeaponScript : MonoBehaviour
     {
         GameObject flashGO = Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
         Destroy(flashGO, 0.15f);
-        Debug.Log(hitPos);
+        //Debug.Log(hitPos);
         
         //returns an array of all colliders in a 0.3 radius
         Collider[] colliders = Physics.OverlapSphere(hitPos, 0.3f);
@@ -309,7 +309,7 @@ public class WeaponScript : MonoBehaviour
             GameObject impactGO = Instantiate(bulletHoleGraphic, hitPos + hitNormal * 0.001f,
                 Quaternion.LookRotation(hitNormal));
             Destroy(impactGO, 10f);
-            Debug.Log("bullet hole");
+            //Debug.Log("bullet hole");
             impactGO.transform.SetParent(colliders[0].transform);
         }
         

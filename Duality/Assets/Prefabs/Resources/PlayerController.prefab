@@ -100,7 +100,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65
   animator: {fileID: 3220890163601068049}
-  recoilScript: {fileID: 0}
+  recoilScript: {fileID: 8269765716293218213}
   hipfirePos: {fileID: 5232921590155706263}
   adsPos: {fileID: 5012805533431173232}
   playerController: {fileID: 0}
@@ -472,6 +472,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  playerManager: {fileID: 0}
 --- !u!114 &5167363125794867140
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private const float maxHealth = 100f;
     private float currentHealth = maxHealth;
 
-    private PlayerManager playerManager;
+    public PlayerManager playerManager;
 
     private void Awake()
     {
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     //Runs on everyone elses computer, but on the person hit will receive the damage because of the if !PV.Mine
     [PunRPC]
-    void RPC_TakeDamage(float damage)
+    void RPC_TakeDamage(float damage, PhotonMessageInfo info)
     {
         if (!PV.IsMine)
         {
@@ -139,11 +139,13 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         //Gives a value between 0 and 1 for health 
         healthBarImage.fillAmount = currentHealth / maxHealth;
 
+        Debug.Log("Player who shot you: " + info.Sender.NickName);
+        Debug.Log(info.Sender);
+
         if (currentHealth <= 0)
         {
             playerManager.Die();
+            playerManager.deaths++;
         }
     }
-
-
 }

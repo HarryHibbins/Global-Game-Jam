@@ -21,8 +21,6 @@ public class Recoil : MonoBehaviour
     {
         weaponScript = weaponHolder.GetComponentInChildren<WeaponScript>();
         PV = transform.root.GetComponent<PhotonView>();
-        
-
     }
 
     void Update()
