@@ -139,13 +139,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         //Gives a value between 0 and 1 for health 
         healthBarImage.fillAmount = currentHealth / maxHealth;
 
-        Debug.Log("Player who shot you: " + info.Sender.NickName);
+        /*Debug.Log("Player who shot you: " + info.Sender.NickName);
         Debug.Log(info.Sender);
+        Debug.Log(info.photonView.ViewID);*/
 
         if (currentHealth <= 0)
         {
-            playerManager.Die();
             playerManager.deaths++;
+            PhotonView.Find(info.photonView.ViewID).gameObject.GetComponent<PlayerController>().playerManager.kills++;
+            playerManager.Die();
         }
     }
 }

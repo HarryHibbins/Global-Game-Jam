@@ -17,6 +17,7 @@ public class WeaponScript : MonoBehaviour
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
     public Animator animator;
+    public GameObject recoil;
     public Recoil recoilScript;
     public Transform hipfirePos;
     public Transform adsPos;
@@ -45,7 +46,8 @@ public class WeaponScript : MonoBehaviour
         startFOV = fpsCam.fieldOfView;
         bulletsLeft = stats.magazineSize;
         readyToShoot = true;
-        recoilScript = GameObject.FindGameObjectWithTag("RecoilCam").GetComponent<Recoil>();
+        //recoilScript = GameObject.FindGameObjectWithTag("RecoilCam").GetComponent<Recoil>();
+        recoilScript = recoil.GetComponent<Recoil>();
         PV = GetComponent<PhotonView>();
         playerController = GetComponentInParent<PlayerController>();
 
@@ -95,7 +97,6 @@ public class WeaponScript : MonoBehaviour
             reloading = false;
             animator.SetBool("Reloading", false);
         }
-     
     }
 
     public void AssignModel()
