@@ -332,4 +332,12 @@ public class PlayerMovement : MonoBehaviour
         fovCam.fieldOfView = Mathf.Lerp(fovCam.fieldOfView, fov, wallRunFOVTime * Time.deltaTime);
         tilt = Mathf.Lerp(tilt, 0f, camTiltTime * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Net") 
+        {
+            transform.position = new Vector3(0, 4, 0);        
+        }
+    }
 }

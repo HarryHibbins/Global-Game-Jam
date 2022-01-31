@@ -10,6 +10,7 @@ TagManager:
   - HUD
   - GroundCheck
   - FiringPoint
+  - Net
   - Projectile
   layers:
   - Default
