@@ -112,6 +112,7 @@ MonoBehaviour:
   HUD: {fileID: 4535491239682525646}
   scopeSprite: {fileID: 3100298185385573528}
   crosshair: {fileID: 0}
+  explosionGFX: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   isFiring: 0
   isADS: 0
   isADSing: 0
@@ -462,8 +463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraHolder: {fileID: 5861967653384255563}
-  sprintSpeed: 2
-  walkSpeed: 1
+  sprintSpeed: 6
+  walkSpeed: 3
   jumpForce: 300
   smoothTime: 0.15
   currentSensitivity: 0
@@ -535,6 +536,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e949c71bd2257e4eb5b7bbc20481992, type: 2}
   - {fileID: 11400000, guid: f5619b800738341489843ca7daee2600, type: 2}
   - {fileID: 11400000, guid: 8df62d2490685ae4fb6842bf60e3d50c, type: 2}
+  - {fileID: 11400000, guid: 2132cf17c3811bc4a9e76be3020df2ec, type: 2}
   weaponScript: {fileID: 8869223960032138883}
   currentWeapon: 0
   PV: {fileID: 0}

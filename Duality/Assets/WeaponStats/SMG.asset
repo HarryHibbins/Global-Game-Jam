@@ -27,6 +27,8 @@ MonoBehaviour:
   allowADS: 1
   autoReload: 0
   usesShells: 0
+  usesScope: 0
+  isHitscan: 1
   recoilX: -0.6
   recoilY: 1.5
   recoilZ: 0.15
@@ -36,3 +38,4 @@ MonoBehaviour:
   snapiness: 6
   returnSpeed: 2.5
   gunModel: {fileID: 6513462501660768856, guid: 7bb08394bef9e15478a5fa89fecc146b, type: 3}
+  projectileAmmo: {fileID: 0}

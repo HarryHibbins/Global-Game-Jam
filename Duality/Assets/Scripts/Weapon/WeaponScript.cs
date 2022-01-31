@@ -32,6 +32,7 @@ public class WeaponScript : MonoBehaviour
     public GameObject HUD;
     public Image scopeSprite;
     public Image crosshair;
+    public GameObject explosionGFX;
 
 
     //Bools
@@ -145,7 +146,6 @@ public class WeaponScript : MonoBehaviour
 
             ADSLogic();
         }
-
     }
 
     private void ADSLogic()
@@ -281,20 +281,52 @@ public class WeaponScript : MonoBehaviour
             }
         }
 
-        //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        
 
-        //RayCast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, stats.range, whatIsEnemy))
+        if (stats.isHitscan)
         {
-            //Debug.Log(rayHit.collider.name);
-      
-            //If the hit object has the IDamagable interface, take damage equal to the weapon damage
-            rayHit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(stats.damage);
-            PV.RPC("RPC_Shoot", RpcTarget.All, rayHit.point, rayHit.normal);
+            //Calculate Direction with Spread
+            Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
+            //RayCast
+            if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, stats.range, whatIsEnemy))
+            {
+                //Debug.Log(rayHit.collider.name);
+
+                //If the hit object has the IDamagable interface, take damage equal to the weapon damage
+                rayHit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(stats.damage);
+                PV.RPC("RPC_Shoot", RpcTarget.All, rayHit.point, rayHit.normal);
+
+
+            }
+        }
+        else
+        {
+            Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            RaycastHit hit;
+
+            Vector3 targetPoint;
+            if (Physics.Raycast(ray, out hit))
+            {
+                targetPoint = hit.point;
+            }
+            else
+            {
+                targetPoint = ray.GetPoint(75);
+            }
+
+            Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
+            Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
+
+            GameObject currentBullet = Instantiate(stats.projectileAmmo, attackPoint.position, Quaternion.identity);
+            currentBullet.GetComponent<ProjectileExplosion>().pv = PV;
+            currentBullet.transform.forward = directionWithSpread.normalized;
+            currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * stats.shootForce, ForceMode.Impulse);
+            currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * stats.upwardForce, ForceMode.Impulse);
             
         }
+
+        
 
         recoilScript.RecoilFire();
 
@@ -334,6 +366,13 @@ public class WeaponScript : MonoBehaviour
             impactGO.transform.SetParent(colliders[0].transform);
         }
         
+    }
+
+    [PunRPC]
+    void RPC_Explode(Vector3 pos)
+    {
+        //Instatiate explosion
+        Instantiate(explosionGFX, pos, Quaternion.identity);
     }
 
     private void ResetShot()

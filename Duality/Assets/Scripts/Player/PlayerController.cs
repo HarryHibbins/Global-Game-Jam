@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             moveDirection * (Input.GetButton("Sprint") ? sprintSpeed : walkSpeed),
             ref smoothMoveVelocity, smoothTime);
 
-        rb.AddForce(moveAmount);
+        //rb.AddForce(moveAmount);
 
         if (transform.position.y < -20f)
         {
