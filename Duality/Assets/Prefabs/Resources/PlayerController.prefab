@@ -462,8 +462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraHolder: {fileID: 5861967653384255563}
-  sprintSpeed: 6
-  walkSpeed: 3
+  sprintSpeed: 2
+  walkSpeed: 1
   jumpForce: 300
   smoothTime: 0.15
   currentSensitivity: 0

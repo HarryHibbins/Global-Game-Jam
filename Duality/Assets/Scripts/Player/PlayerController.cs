@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         PV = GetComponent<PhotonView>();
 
         //Gets the player manager for the local player
-        playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+        //playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
 
         if (PV.IsMine)
         {
@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         moveAmount = Vector3.SmoothDamp(moveAmount,
             moveDirection * (Input.GetButton("Sprint") ? sprintSpeed : walkSpeed),
             ref smoothMoveVelocity, smoothTime);
+
+        rb.AddForce(moveAmount);
 
         if (transform.position.y < -20f)
         {
