@@ -11,7 +11,6 @@ public class pickUpWeapon : MonoBehaviour
     private GameObject modelHolder;
     private GameObject model;
     private GameObject spawnedWeapon;
-    private PhotonView PV;
 
     
     [SerializeField] private float rotationSpeed;
@@ -55,7 +54,6 @@ public class pickUpWeapon : MonoBehaviour
             if (weapon.weaponName == weaponList[weaponNumber].weaponName)
             {
                 weapon.hasWeapon = true;
-                Debug.Log("Picked up: " + weapon.weaponName + weapon.hasWeapon);
             }
         }
     }

@@ -135,6 +135,13 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         PV.RPC("RPC_TakeDamage", RpcTarget.All, damage);
     }
 
+    public void HealthPickup()
+    {
+        currentHealth = maxHealth;
+        healthBarImage.fillAmount = currentHealth / maxHealth;
+    }
+    
+
     //Runs on everyone elses computer, but on the person hit will receive the damage because of the if !PV.Mine
     [PunRPC]
     void RPC_TakeDamage(float damage, PhotonMessageInfo info)

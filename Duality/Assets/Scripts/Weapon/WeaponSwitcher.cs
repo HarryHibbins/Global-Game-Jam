@@ -31,24 +31,25 @@ public class WeaponSwitcher : MonoBehaviour
                 }
             }
 
-            //spawn with pistol and random other gun between AS, Shotgun, and SMG
-            weaponList[0].hasWeapon = true;
-            int randomNum = Random.Range(1, 3);
-            weaponList[randomNum].hasWeapon = true;
-           // currentWeapon = randomNum;
-           
-            Debug.Log("Random num:" + randomNum);
-            
-            foreach (var weapon in weaponList)
-            {
-                if (weapon.hasWeapon)
-                {
-                    Debug.Log(weapon.weaponName + " " + weapon.hasWeapon);
 
-                }
-            }
+            StartCoroutine(assignModel());
+
         }
        
+    }
+
+    IEnumerator assignModel()
+    {
+        //spawn with pistol and random other gun between AS, Shotgun, and SMG
+        weaponList[0].hasWeapon = true;
+        int randomNum = Random.Range(1, 4);
+        weaponList[randomNum].hasWeapon = true;
+        
+        yield return new WaitForSeconds(.1f);
+        
+        currentWeapon = randomNum;
+        UpdateGun();
+            
     }
 
     private void Update()
@@ -110,7 +111,7 @@ public class WeaponSwitcher : MonoBehaviour
         {
             for (int i = weaponList.Count-1; i > 0; i--)
             {
-                Debug.Log(weaponList[i].weaponName +weaponList[i].hasWeapon );
+                
                 if (weaponList[i].hasWeapon)
                 {
                     currentWeapon = i;

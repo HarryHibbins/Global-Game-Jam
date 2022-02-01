@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 8354995083107959164}
   - component: {fileID: 8354995083107959166}
   m_Layer: 0
-  m_Name: PickUpWeapon
+  m_Name: WeaponSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
