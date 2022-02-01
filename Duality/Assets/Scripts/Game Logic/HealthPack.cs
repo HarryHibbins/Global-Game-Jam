@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class HealthPack : MonoBehaviour
 {
-    [SerializeField] GameObject healthpackModel;
-    [SerializeField] private GameObject healthpackHolder;
-    [SerializeField] GameObject healthpack;
+    [SerializeField] GameObject modelPrefab;
+    [SerializeField] GameObject modelHolder;
+    [SerializeField] private GameObject healthPackHolder;
+    [SerializeField] GameObject spawnedHealthPack;
     [SerializeField] private float respawnTime;
     [SerializeField] private float rotationSpeed;
 
@@ -18,49 +19,69 @@ public class HealthPack : MonoBehaviour
     private void Awake()
     {
         
-        /*PV = GetComponent<PhotonView>();
-        if (!PV.IsMine)
+        
+        
+        healthPackHolder = transform.GetChild(0).gameObject;
+        modelHolder = healthPackHolder.transform.GetChild(0).gameObject;
+
+        transform.name = transform.parent.name;
+        
+        
+        foreach (Transform child in modelHolder.gameObject.transform)
         {
-            Destroy(gameObject);
-            
-   
-        }*/
+            Destroy(child.gameObject);
+        }
         
 
-        //PhotonNetwork.Destroy(healthpackHolder.transform.GetChild(0).gameObject);
-        //Destroy(healthpackHolder.transform.GetChild(0).gameObject);
-        //healthpack = PhotonNetwork.Instantiate("HealthPackModel", healthpackHolder.transform.position, healthpackHolder.transform.rotation);
-        //healthpack.transform.parent = 
-        //healthpack = Instantiate(healthpackModel, healthpackHolder.transform.position, healthpackHolder.transform.rotation);
-        healthpackModel = transform.GetChild(0).GetChild(0).gameObject;
-        healthpack = healthpackModel.transform.GetChild(0).gameObject;
+        spawnedHealthPack = Instantiate(modelPrefab, modelHolder.transform.position, modelHolder.transform.rotation, modelHolder.transform);
+        spawnedHealthPack.transform.parent = modelHolder.transform;
+    
     }
 
 
 
     private void Update()
     {
-        healthpackHolder.transform.Rotate(new Vector3(0,45,0) * rotationSpeed * Time.deltaTime);
+        modelHolder.transform.Rotate(new Vector3(0,45,0) * rotationSpeed * Time.deltaTime);
     }
 
-    IEnumerator respawnHealthpack()
+    public IEnumerator respawnHealthpack()
     {
+        foreach (Transform child in modelHolder.gameObject.transform)
+        {
+            Destroy(child.gameObject);
+        }
+   
+        
         yield return new WaitForSeconds(respawnTime);
-       healthpack = PhotonNetwork.Instantiate("HealthPackModel", healthpackHolder.transform.position, healthpackHolder.transform.rotation);
-      // healthpack.transform.parent = healthpackModel.transform.GetChild(0);
-       //healthpack = Instantiate(healthpackModel, healthpackHolder.transform.position, healthpackHolder.transform.rotation);
+
+     
+        spawnedHealthPack = Instantiate(modelPrefab, modelHolder.transform.position, modelHolder.transform.rotation, modelHolder.transform);
+        spawnedHealthPack.transform.parent = modelHolder.transform;
 
     }
     private void OnTriggerEnter(Collider other)
     {
-        PhotonNetwork.Destroy(healthpack);
-        //Destroy(healthpack);
+        Destroy(spawnedHealthPack);
         
         if (other.GetComponent<PlayerController>().PV.IsMine)
         {
+            String tempName = null;
+            GameObject SpawnPoints = GameObject.FindGameObjectWithTag("HealthSpawnPoints");
+            foreach (Transform spawnPoint in SpawnPoints.transform)
+            {
+                if (spawnPoint.GetChild(0).name == transform.name)
+                {
+                    tempName = spawnPoint.GetChild(0).name;
+                }
+            }
+            
             PlayerController player = other.GetComponent<PlayerController>();
             player.HealthPickup();
             StartCoroutine(respawnHealthpack());
+            
+            other.GetComponent<PlayerController>().PV.RPC("RPC_PickupHealth", RpcTarget.Others, tempName);
+
         }
     }
 }

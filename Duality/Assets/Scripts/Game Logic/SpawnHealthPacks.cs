@@ -7,19 +7,14 @@ using UnityEngine;
 public class SpawnHealthPacks : MonoBehaviour
 {
 
-    void Start()
+    [SerializeField]private GameObject HealthSpawner;
+    private void Start()
     {
-        //Instantiate on server 
-        
-        //Transform spawnPoint = HealthSpawnPointManager.Instance.getRandomSpawnPoint();
-        foreach (var healthpack in HealthSpawnPointManager.Instance.spawnPoints)
+        foreach (var HealthPack in HealthSpawnPointManager.Instance.spawnPoints)
         {
-            //PhotonNetwork.Instantiate("HealthPack", healthpack.transform.position, healthpack.transform.rotation,0, new object[] {PV.ViewID});
-          //  Debug.Log("Spawn health");
+            Instantiate(HealthSpawner, HealthPack.transform.position, HealthPack.transform.rotation, HealthPack.transform);
         }
-        
-        
-       
+     
     }
 
     

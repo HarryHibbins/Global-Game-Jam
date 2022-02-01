@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 125602918}
   m_Layer: 0
   m_Name: Health Spawn Points
-  m_TagString: Untagged
+  m_TagString: HealthSpawnPoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1048,7 +1048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150781861}
   m_Layer: 0
-  m_Name: Spawn Point (2)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3528,7 +3528,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh362336
+  m_Name: pb_Mesh672912
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6695,7 +6695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1110917066}
   m_Layer: 0
-  m_Name: Spawn Point (3)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8091,7 +8091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1407515497}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8217,7 +8217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428914564}
   m_Layer: 0
-  m_Name: Spawn Point (1)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -9508,6 +9508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bafa59e80abfde44b1f37a50ada0216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthSpawner: {fileID: 521104293531783832, guid: ce0e725f8e80089448df22482670df76, type: 3}
 --- !u!114 &1697989400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9520,7 +9521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3beba6d24d4ef4b4e8d1bcb2b2721fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
   WeaponSpawner: {fileID: 8354995083107959163, guid: 4e5d2c9478cfb1647a64727afaa105c0, type: 3}
 --- !u!1 &1700830183
 GameObject:

@@ -57,7 +57,7 @@ public class pickUpWeapon : MonoBehaviour
    
         weaponNumber = Random.Range(0, weaponList.Count);
         
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(30f);
 
 
         spawnedWeapon = Instantiate(weaponList[weaponNumber].gunModel, model.transform.position, model.transform.rotation, model.transform);

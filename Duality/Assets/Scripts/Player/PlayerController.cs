@@ -187,6 +187,21 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
                 StartCoroutine(spawnPoint.GetComponentInChildren<pickUpWeapon>().RespawnWeapon());
             }
         }
-        //RespawnWeapon();
+    }
+    
+        
+    [PunRPC]
+    void RPC_PickupHealth(string name)
+    {
+        Debug.Log("Other player picked up health");
+        GameObject SpawnPoints = GameObject.FindGameObjectWithTag("HealthSpawnPoints");
+        foreach (Transform spawnPoint in SpawnPoints.transform)
+        {
+            if (spawnPoint.name == name)
+            {
+                Debug.Log("This spawn point needs to respawn " +name);
+                StartCoroutine(spawnPoint.GetComponentInChildren<HealthPack>().respawnHealthpack());
+            }
+        }
     }
 }

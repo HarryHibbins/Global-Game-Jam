@@ -11,7 +11,6 @@ public class WeaponSpawnPointManager : MonoBehaviour
 
     private void Start()
     {
-
         
         Instance = this;
         for (int i = 0; i < transform.childCount; i++)

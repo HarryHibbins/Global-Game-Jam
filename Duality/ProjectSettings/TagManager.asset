@@ -13,6 +13,7 @@ TagManager:
   - Net
   - Projectile
   - WeaponSpawnPoints
+  - HealthSpawnPoints
   layers:
   - Default
   - TransparentFX
