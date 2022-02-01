@@ -538,13 +538,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponList:
-  - {fileID: 11400000, guid: 5e1f613a70a1eac4e9529c66315fcdd4, type: 2}
   - {fileID: 11400000, guid: 8df62d2490685ae4fb6842bf60e3d50c, type: 2}
-  - {fileID: 11400000, guid: f8ae323b7139f4a41ba7173bfee366de, type: 2}
+  - {fileID: 11400000, guid: 5e1f613a70a1eac4e9529c66315fcdd4, type: 2}
+  - {fileID: 11400000, guid: 562bcc906f488ba4b9ab00451ce26c73, type: 2}
   - {fileID: 11400000, guid: 475e9727a7947a842b203bc427331b4d, type: 2}
   - {fileID: 11400000, guid: 4e949c71bd2257e4eb5b7bbc20481992, type: 2}
   - {fileID: 11400000, guid: f5619b800738341489843ca7daee2600, type: 2}
-  - {fileID: 11400000, guid: 562bcc906f488ba4b9ab00451ce26c73, type: 2}
+  - {fileID: 11400000, guid: f8ae323b7139f4a41ba7173bfee366de, type: 2}
   - {fileID: 11400000, guid: 2132cf17c3811bc4a9e76be3020df2ec, type: 2}
   weaponScript: {fileID: 8869223960032138883}
   currentWeapon: 0

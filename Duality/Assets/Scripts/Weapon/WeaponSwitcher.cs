@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Random = UnityEngine.Random;
+
 
 public class WeaponSwitcher : MonoBehaviour
 {
@@ -15,6 +17,10 @@ public class WeaponSwitcher : MonoBehaviour
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        
+        //int randomNum = Random.Range(1, 3);
+        //weaponList[randomNum].hasWeapon = true;
+
 
     }
 
