@@ -60,6 +60,12 @@ public class WeaponScript : MonoBehaviour
             }
         }
 
+        if (PV.IsMine)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Weapon");
+            SetLayerRecursively(this.gameObject, "Weapon");
+        }
+
 
         //The ammo Text must be the first child of HUD
         ammoText = HUD.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -77,12 +83,23 @@ public class WeaponScript : MonoBehaviour
         {
             //Destroy the HUD of the other player 
             Destroy(HUD);
+            //this.gameObject.layer = LayerMask.NameToLayer("Default");
         }
         else
         {
+            //this.gameObject.layer = LayerMask.NameToLayer("Weapon");
             AssignRecoilCam();
         }
         AssignModel();
+    }
+
+    void SetLayerRecursively(GameObject obj, string layer)
+    {
+        obj.layer = LayerMask.NameToLayer(layer);
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, layer);
+        }
     }
 
     public void AssignRecoilCam()
@@ -98,6 +115,15 @@ public class WeaponScript : MonoBehaviour
             reloading = false;
             animator.SetBool("Reloading", false);
         }
+
+        /*if (PV.IsMine)
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("Weapon");
+        }
+        else
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("Default");
+        }*/
     }
 
     public void AssignModel()
@@ -107,6 +133,16 @@ public class WeaponScript : MonoBehaviour
             Destroy(child.gameObject);
         }
         weapon = Instantiate(stats.gunModel, Vector3.zero, Quaternion.identity, this.gameObject.transform);
+        if (PV.IsMine)
+        {
+            weapon.layer = LayerMask.NameToLayer("Weapon");
+            SetLayerRecursively(weapon, "Weapon");
+        }
+        else
+        {
+            weapon.layer = LayerMask.NameToLayer("Default");
+            SetLayerRecursively(weapon, "Default");
+        }
         weapon.transform.localPosition = Vector3.zero;
         weapon.transform.localRotation = Quaternion.Euler(0, 180, 0);
         foreach (Transform child in weapon.transform)

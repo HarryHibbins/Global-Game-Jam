@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4008001775734496288}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: UnderbarrelGrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 3663575417155941999}
   - component: {fileID: 252463301379372345}
   - component: {fileID: 8845418438795485581}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainBody (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 3045019073287520181}
   - component: {fileID: 5455107270312013988}
   - component: {fileID: 5207407902520822159}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 8408644192304147935}
   - component: {fileID: 148702019448887950}
   - component: {fileID: 2225275418908691554}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 1589081022465938405}
   - component: {fileID: 8604082523133747555}
   - component: {fileID: 1376257826041114638}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8557011800477383663}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 3725046388344820764}
   - component: {fileID: 6714294797698293553}
   - component: {fileID: 5598373052999078655}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back Sight - Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 3464181329004723379}
   - component: {fileID: 9128181543964889400}
   - component: {fileID: 7783206141324214760}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 259380920369558143}
   - component: {fileID: 4797615167703365635}
   - component: {fileID: 3505686718895675614}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 8126305962786486480}
   - component: {fileID: 1002597590819314818}
   - component: {fileID: 2771437615169774517}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 6603672935181976638}
   - component: {fileID: 1709093890642807557}
   - component: {fileID: 7204279263729751655}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -814,7 +814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6030937444775911686}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FiringPoint
   m_TagString: FiringPoint
   m_Icon: {fileID: 0}
@@ -844,7 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8183862218374893118}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Geometry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636206338462593533}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Front Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 4993174991223364}
   - component: {fileID: 7969840436983814314}
   - component: {fileID: 5692732644746973331}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +1000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3942627961166860820}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1055,7 +1055,7 @@ GameObject:
   - component: {fileID: 1529308455510406177}
   - component: {fileID: 2881937265633699798}
   - component: {fileID: 6621611374175470807}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 1891604481609418572}
   - component: {fileID: 1230364197065838175}
   - component: {fileID: 8506566894788619183}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,7 +1219,7 @@ GameObject:
   - component: {fileID: 7288494077925377382}
   - component: {fileID: 3100040491489882913}
   - component: {fileID: 3895237758082495816}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1299,7 +1299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2590580450832037251}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Aesthetics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1331,7 +1331,7 @@ GameObject:
   - component: {fileID: 5816537521599977651}
   - component: {fileID: 1076966920417511862}
   - component: {fileID: 6128914741807037038}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,7 +1411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5561876758397012837}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 4216781528334529306}
   - component: {fileID: 7842652426816195631}
   - component: {fileID: 8000654985736642953}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1529,7 +1529,7 @@ GameObject:
   - component: {fileID: 4624144991638476189}
   - component: {fileID: 960776267471952305}
   - component: {fileID: 7016049896170687038}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1611,7 +1611,7 @@ GameObject:
   - component: {fileID: 4442807916903770300}
   - component: {fileID: 7550776047163896405}
   - component: {fileID: 6403268432113941337}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back Sight - Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1694,7 +1694,7 @@ GameObject:
   - component: {fileID: 2306660509514429244}
   - component: {fileID: 7971855525760576078}
   - component: {fileID: 1889381560092881004}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1776,7 +1776,7 @@ GameObject:
   - component: {fileID: 7468482760800217793}
   - component: {fileID: 3886894030853100377}
   - component: {fileID: 5219701835758552775}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1858,7 +1858,7 @@ GameObject:
   - component: {fileID: 8496956009368052171}
   - component: {fileID: 4234789984233895689}
   - component: {fileID: 7774276621307542891}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1940,7 +1940,7 @@ GameObject:
   - component: {fileID: 4314939067588875224}
   - component: {fileID: 2377645601319206538}
   - component: {fileID: 774838217317719059}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2022,7 +2022,7 @@ GameObject:
   - component: {fileID: 5390159403947389051}
   - component: {fileID: 4187681871898776228}
   - component: {fileID: 125865485308498329}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2104,7 +2104,7 @@ GameObject:
   - component: {fileID: 8541719975420291436}
   - component: {fileID: 5188021748183668489}
   - component: {fileID: 5700423912959441502}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Barrel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2186,7 +2186,7 @@ GameObject:
   - component: {fileID: 8510130077168430341}
   - component: {fileID: 8616864358378315734}
   - component: {fileID: 8075192231677101646}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2268,7 +2268,7 @@ GameObject:
   - component: {fileID: 1397162000762985769}
   - component: {fileID: 4745425499939591432}
   - component: {fileID: 120703664317303262}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Neon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2348,7 +2348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072469350664894974}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Stock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2380,7 +2380,7 @@ GameObject:
   - component: {fileID: 6047467127569193922}
   - component: {fileID: 5461604940270373461}
   - component: {fileID: 1465846375940223424}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2462,7 +2462,7 @@ GameObject:
   - component: {fileID: 4644589929717342262}
   - component: {fileID: 5051155375280519562}
   - component: {fileID: 6907027513741836848}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2545,7 +2545,7 @@ GameObject:
   - component: {fileID: 3778331172974420183}
   - component: {fileID: 7111438969635569033}
   - component: {fileID: 6088731302780087516}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2627,7 +2627,7 @@ GameObject:
   - component: {fileID: 1885241997576708430}
   - component: {fileID: 201775095750691649}
   - component: {fileID: 4399738574290053970}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2709,7 +2709,7 @@ GameObject:
   - component: {fileID: 3777576393945754274}
   - component: {fileID: 3876412796853024619}
   - component: {fileID: 6819498938827233259}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2791,7 +2791,7 @@ GameObject:
   - component: {fileID: 2661156854066887736}
   - component: {fileID: 6787108754790539726}
   - component: {fileID: 4297452510311171194}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2873,7 +2873,7 @@ GameObject:
   - component: {fileID: 4245153835906851763}
   - component: {fileID: 1423288346480885823}
   - component: {fileID: 2659521253593148328}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2956,7 +2956,7 @@ GameObject:
   - component: {fileID: 4096708939996452129}
   - component: {fileID: 7849465365483210459}
   - component: {fileID: 653760220438093226}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3038,7 +3038,7 @@ GameObject:
   - component: {fileID: 935297315865723263}
   - component: {fileID: 8855487343762127180}
   - component: {fileID: 5185763519753256842}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3121,7 +3121,7 @@ GameObject:
   - component: {fileID: 5725583267541565305}
   - component: {fileID: 2994108140318741918}
   - component: {fileID: 2233786589981422207}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3203,7 +3203,7 @@ GameObject:
   - component: {fileID: 9115993674262100670}
   - component: {fileID: 7135527548792318037}
   - component: {fileID: 1454725819426975006}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Handle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3283,7 +3283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3305571932719233090}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Temp Model - Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3317,7 +3317,7 @@ GameObject:
   - component: {fileID: 7802001735874219684}
   - component: {fileID: 3380528430520911459}
   - component: {fileID: 31275852783551807}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3399,7 +3399,7 @@ GameObject:
   - component: {fileID: 4576191044960138832}
   - component: {fileID: 1880422785638231709}
   - component: {fileID: 3826131529363167263}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3481,7 +3481,7 @@ GameObject:
   - component: {fileID: 1049998638102537438}
   - component: {fileID: 5320511919308747166}
   - component: {fileID: 2445100352656057639}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3563,7 +3563,7 @@ GameObject:
   - component: {fileID: 8935474111006327391}
   - component: {fileID: 2194577029544804834}
   - component: {fileID: 2577948741993181477}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3645,7 +3645,7 @@ GameObject:
   - component: {fileID: 5759519154105266440}
   - component: {fileID: 7923796601370589230}
   - component: {fileID: 4686132823546694945}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3727,7 +3727,7 @@ GameObject:
   - component: {fileID: 1104981938068891991}
   - component: {fileID: 8517889398970466089}
   - component: {fileID: 8592039880412273182}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: LightHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3809,7 +3809,7 @@ GameObject:
   - component: {fileID: 3991651968542399866}
   - component: {fileID: 8067473744545705956}
   - component: {fileID: 326142921082483237}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3891,7 +3891,7 @@ GameObject:
   - component: {fileID: 3895856626836050087}
   - component: {fileID: 3420575569583359862}
   - component: {fileID: 4081050578235366779}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3971,7 +3971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5644241154885728198}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TopRail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4003,7 +4003,7 @@ GameObject:
   - component: {fileID: 5793814491766041344}
   - component: {fileID: 4221698765226544413}
   - component: {fileID: 4367796346248579738}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4083,7 +4083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5044383802965601295}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Underbarrel Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4115,7 +4115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 769048139089375963}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Silencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4150,7 +4150,7 @@ GameObject:
   - component: {fileID: 2291647551087259294}
   - component: {fileID: 1313656801562181962}
   - component: {fileID: 6221568238859395283}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Neon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4230,7 +4230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9114680020883011420}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4263,7 +4263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6353517878409933958}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Bottom Rail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4298,7 +4298,7 @@ GameObject:
   - component: {fileID: 6233339861318154807}
   - component: {fileID: 282827329760776970}
   - component: {fileID: 7446873640087090624}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4381,7 +4381,7 @@ GameObject:
   - component: {fileID: 5332794867214534477}
   - component: {fileID: 5422843952549031123}
   - component: {fileID: 3273793617108369468}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4463,7 +4463,7 @@ GameObject:
   - component: {fileID: 6126662102969978301}
   - component: {fileID: 923285084189011266}
   - component: {fileID: 780272601711264590}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4545,7 +4545,7 @@ GameObject:
   - component: {fileID: 3063182140201768574}
   - component: {fileID: 1214416130154516452}
   - component: {fileID: 89762004167081902}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4627,7 +4627,7 @@ GameObject:
   - component: {fileID: 3259732681593786976}
   - component: {fileID: 4643802264515047418}
   - component: {fileID: 8451230820464030588}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back Sight - Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4709,7 +4709,7 @@ GameObject:
   - component: {fileID: 833527890952830859}
   - component: {fileID: 6135365146257325508}
   - component: {fileID: 874812793002881137}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

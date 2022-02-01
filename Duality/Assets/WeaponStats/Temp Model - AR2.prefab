@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4008001775734496288}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: UnderbarrelGrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6790507439917164741}
   - component: {fileID: 3853572802211009316}
   - component: {fileID: 6645014672928317472}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 8709844804265663687}
   - component: {fileID: 319087884833455227}
   - component: {fileID: 2258151356044155128}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 8472536301591112760}
   - component: {fileID: 7912847362067280490}
   - component: {fileID: 2836460488965212278}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Barrel (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8557011800477383663}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 3725046388344820764}
   - component: {fileID: 6714294797698293553}
   - component: {fileID: 5598373052999078655}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back Sight - Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 6805038514971289046}
   - component: {fileID: 8944388472012381238}
   - component: {fileID: 6600778631528425985}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 1309326115096434664}
   - component: {fileID: 6592756588770490636}
   - component: {fileID: 5470292824584610965}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 4752661396522029212}
   - component: {fileID: 3467114261800770964}
   - component: {fileID: 6125552700842640182}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainBody (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 8126305962786486480}
   - component: {fileID: 1002597590819314818}
   - component: {fileID: 2771437615169774517}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6030937444775911686}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FiringPoint
   m_TagString: FiringPoint
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8183862218374893118}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Geometry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 124529916095176080}
   - component: {fileID: 2685717735774631327}
   - component: {fileID: 5035829373439145619}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,7 +891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636206338462593533}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Front Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 682200291994950798}
   - component: {fileID: 8046007464932478089}
   - component: {fileID: 6052532421570375286}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3942627961166860820}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   - component: {fileID: 1408688113946662710}
   - component: {fileID: 6666401078062982223}
   - component: {fileID: 3031144662198766289}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,7 +1141,7 @@ GameObject:
   - component: {fileID: 6227303330649823955}
   - component: {fileID: 2904539897964221971}
   - component: {fileID: 9143287396565093820}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 2808154095960825812}
   - component: {fileID: 6126492783499816605}
   - component: {fileID: 9047985164884075976}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1305,7 +1305,7 @@ GameObject:
   - component: {fileID: 3375160835270777393}
   - component: {fileID: 421944091310080052}
   - component: {fileID: 4901069440596272019}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,7 +1387,7 @@ GameObject:
   - component: {fileID: 4679360862196887937}
   - component: {fileID: 524778152389662138}
   - component: {fileID: 4381704006742970101}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1467,7 +1467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2590580450832037251}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Aesthetics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1499,7 +1499,7 @@ GameObject:
   - component: {fileID: 8238132625859909358}
   - component: {fileID: 4802921332740301725}
   - component: {fileID: 4454698098408488419}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1579,7 +1579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5561876758397012837}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1614,7 +1614,7 @@ GameObject:
   - component: {fileID: 4216781528334529306}
   - component: {fileID: 7842652426816195631}
   - component: {fileID: 8000654985736642953}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 532528258880853142}
   - component: {fileID: 6364648850865149258}
   - component: {fileID: 814195463544023150}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1778,7 +1778,7 @@ GameObject:
   - component: {fileID: 4442807916903770300}
   - component: {fileID: 7550776047163896405}
   - component: {fileID: 6403268432113941337}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back Sight - Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,7 +1861,7 @@ GameObject:
   - component: {fileID: 1035272617643521455}
   - component: {fileID: 6127971177761605341}
   - component: {fileID: 7081859890929990182}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Front Sight - Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1944,7 +1944,7 @@ GameObject:
   - component: {fileID: 6339312900861813360}
   - component: {fileID: 1956115147878050400}
   - component: {fileID: 7526620008883419801}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2026,7 +2026,7 @@ GameObject:
   - component: {fileID: 5001635264783623580}
   - component: {fileID: 3212572502202214488}
   - component: {fileID: 8507960296544948683}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2108,7 +2108,7 @@ GameObject:
   - component: {fileID: 5390159403947389051}
   - component: {fileID: 4187681871898776228}
   - component: {fileID: 125865485308498329}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2190,7 +2190,7 @@ GameObject:
   - component: {fileID: 1397162000762985769}
   - component: {fileID: 4745425499939591432}
   - component: {fileID: 120703664317303262}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Neon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2270,7 +2270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072469350664894974}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Stock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2307,7 +2307,7 @@ GameObject:
   - component: {fileID: 6097650115270956434}
   - component: {fileID: 7372742162720158269}
   - component: {fileID: 1219126498372359773}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MagRelease
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2389,7 +2389,7 @@ GameObject:
   - component: {fileID: 1488359755953913500}
   - component: {fileID: 7000850864909247943}
   - component: {fileID: 2977503099632617123}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2471,7 +2471,7 @@ GameObject:
   - component: {fileID: 9055257407688820542}
   - component: {fileID: 1255850637273785622}
   - component: {fileID: 2143995638762801565}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2553,7 +2553,7 @@ GameObject:
   - component: {fileID: 7400599173371464163}
   - component: {fileID: 5851660731565809076}
   - component: {fileID: 6110192546601913556}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2635,7 +2635,7 @@ GameObject:
   - component: {fileID: 2144678468332509313}
   - component: {fileID: 1911288868346004440}
   - component: {fileID: 7657365372090161061}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2717,7 +2717,7 @@ GameObject:
   - component: {fileID: 2255966182204741549}
   - component: {fileID: 5040516957983208882}
   - component: {fileID: 5018797757949777950}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2799,7 +2799,7 @@ GameObject:
   - component: {fileID: 7313840084673392978}
   - component: {fileID: 613422880243480245}
   - component: {fileID: 1202835697581344020}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2881,7 +2881,7 @@ GameObject:
   - component: {fileID: 3428407002758214741}
   - component: {fileID: 574951885452174157}
   - component: {fileID: 142981077303511870}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Neon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2963,7 +2963,7 @@ GameObject:
   - component: {fileID: 8980065684319306406}
   - component: {fileID: 1940178843328697987}
   - component: {fileID: 7321541079304829685}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3045,7 +3045,7 @@ GameObject:
   - component: {fileID: 4989711961603312800}
   - component: {fileID: 8549520042944545845}
   - component: {fileID: 4209867189812068102}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainBody (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3127,7 +3127,7 @@ GameObject:
   - component: {fileID: 3709122531231819957}
   - component: {fileID: 2583475242968535412}
   - component: {fileID: 6321933445523366779}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3209,7 +3209,7 @@ GameObject:
   - component: {fileID: 1976932770167857742}
   - component: {fileID: 6051600860773033094}
   - component: {fileID: 7787819473880290834}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3291,7 +3291,7 @@ GameObject:
   - component: {fileID: 8922223118742200434}
   - component: {fileID: 8422148280196705961}
   - component: {fileID: 7901156483386269059}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3373,7 +3373,7 @@ GameObject:
   - component: {fileID: 9084900185438843123}
   - component: {fileID: 3313254429738603020}
   - component: {fileID: 2963870877782332643}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3455,7 +3455,7 @@ GameObject:
   - component: {fileID: 7180976929715536463}
   - component: {fileID: 9217416159035488459}
   - component: {fileID: 9122406974962172777}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: LargePole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3537,7 +3537,7 @@ GameObject:
   - component: {fileID: 1619851800421680566}
   - component: {fileID: 835686229953808007}
   - component: {fileID: 1178331158371661498}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3619,7 +3619,7 @@ GameObject:
   - component: {fileID: 5821843534272861811}
   - component: {fileID: 8391779215956746500}
   - component: {fileID: 5360483473600830176}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RailAttachment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3701,7 +3701,7 @@ GameObject:
   - component: {fileID: 4606487389449731439}
   - component: {fileID: 6134854487533671826}
   - component: {fileID: 6712466770778143480}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3783,7 +3783,7 @@ GameObject:
   - component: {fileID: 7603918543136680979}
   - component: {fileID: 8567843614825557994}
   - component: {fileID: 5602739455580264966}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Front Sight - Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3866,7 +3866,7 @@ GameObject:
   - component: {fileID: 5422515162702996791}
   - component: {fileID: 634395819668222453}
   - component: {fileID: 5222358265642213961}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3948,7 +3948,7 @@ GameObject:
   - component: {fileID: 1509561855148115046}
   - component: {fileID: 5428307865696667729}
   - component: {fileID: 6837800693595010638}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4030,7 +4030,7 @@ GameObject:
   - component: {fileID: 858591497808819454}
   - component: {fileID: 2555733206347797070}
   - component: {fileID: 2888945953123299249}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4112,7 +4112,7 @@ GameObject:
   - component: {fileID: 546738298769776571}
   - component: {fileID: 1340659632298224453}
   - component: {fileID: 3407278224474991851}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4192,7 +4192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3305571932719233090}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Temp Model - AR2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4226,7 +4226,7 @@ GameObject:
   - component: {fileID: 7501977476308800726}
   - component: {fileID: 8182437832237638863}
   - component: {fileID: 2894893361391002459}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainBody (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4308,7 +4308,7 @@ GameObject:
   - component: {fileID: 6349541172377848503}
   - component: {fileID: 6135377449863508285}
   - component: {fileID: 2227245077238381504}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4390,7 +4390,7 @@ GameObject:
   - component: {fileID: 5759519154105266440}
   - component: {fileID: 7923796601370589230}
   - component: {fileID: 4686132823546694945}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4472,7 +4472,7 @@ GameObject:
   - component: {fileID: 7641376426702733734}
   - component: {fileID: 6833908607290360686}
   - component: {fileID: 270572176996419097}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: LargePole (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4552,7 +4552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5644241154885728198}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TopRail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4596,7 +4596,7 @@ GameObject:
   - component: {fileID: 8645407943356272122}
   - component: {fileID: 439643149277113814}
   - component: {fileID: 5622031195683265330}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4678,7 +4678,7 @@ GameObject:
   - component: {fileID: 6968295329930984017}
   - component: {fileID: 8125374901072442165}
   - component: {fileID: 7451052862308226454}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4760,7 +4760,7 @@ GameObject:
   - component: {fileID: 5790142900134099999}
   - component: {fileID: 1154609279837291514}
   - component: {fileID: 5660789687219464496}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GripLarge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4842,7 +4842,7 @@ GameObject:
   - component: {fileID: 7686393104195409477}
   - component: {fileID: 5562976452337013522}
   - component: {fileID: 3574226253870099935}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4924,7 +4924,7 @@ GameObject:
   - component: {fileID: 8869460008791499506}
   - component: {fileID: 8935783059143505522}
   - component: {fileID: 8708879623168315771}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Neon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5004,7 +5004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5044383802965601295}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Underbarrel Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5036,7 +5036,7 @@ GameObject:
   - component: {fileID: 5613168315291474208}
   - component: {fileID: 4613457849863506219}
   - component: {fileID: 4975189327367555533}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5116,7 +5116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 769048139089375963}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Silencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5154,7 +5154,7 @@ GameObject:
   - component: {fileID: 2291647551087259294}
   - component: {fileID: 1313656801562181962}
   - component: {fileID: 6221568238859395283}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Neon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5236,7 +5236,7 @@ GameObject:
   - component: {fileID: 7079941387405803265}
   - component: {fileID: 2381885526176198989}
   - component: {fileID: 4738434964844311280}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Barrel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5318,7 +5318,7 @@ GameObject:
   - component: {fileID: 1733542208484889200}
   - component: {fileID: 9006420341161682713}
   - component: {fileID: 7102234419599612515}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5400,7 +5400,7 @@ GameObject:
   - component: {fileID: 8664706806616783498}
   - component: {fileID: 2715309762157518044}
   - component: {fileID: 2699126134005342181}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5482,7 +5482,7 @@ GameObject:
   - component: {fileID: 2775829408487136241}
   - component: {fileID: 7757763307576406058}
   - component: {fileID: 4357584894698761970}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5564,7 +5564,7 @@ GameObject:
   - component: {fileID: 27401539141139847}
   - component: {fileID: 7981424435945429963}
   - component: {fileID: 4035736761122337265}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5646,7 +5646,7 @@ GameObject:
   - component: {fileID: 1124614853852426672}
   - component: {fileID: 2563387711049294602}
   - component: {fileID: 7351136228525415410}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5728,7 +5728,7 @@ GameObject:
   - component: {fileID: 7570187127806484973}
   - component: {fileID: 3240861353431750133}
   - component: {fileID: 8443672948494190606}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Grip (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5808,7 +5808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9114680020883011420}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5841,7 +5841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6353517878409933958}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Bottom Rail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5877,7 +5877,7 @@ GameObject:
   - component: {fileID: 8778447207220687598}
   - component: {fileID: 2846286071538200005}
   - component: {fileID: 7846398231592808750}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5959,7 +5959,7 @@ GameObject:
   - component: {fileID: 6507267706152128573}
   - component: {fileID: 4707159939041764600}
   - component: {fileID: 5351190587102748273}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainBody (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6041,7 +6041,7 @@ GameObject:
   - component: {fileID: 1518871324611234193}
   - component: {fileID: 7128225510053575650}
   - component: {fileID: 2942093283391084682}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Barrel (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6123,7 +6123,7 @@ GameObject:
   - component: {fileID: 3577924033237274902}
   - component: {fileID: 1005370864762775646}
   - component: {fileID: 445196471898816103}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SideRailBottomLeft (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6205,7 +6205,7 @@ GameObject:
   - component: {fileID: 6822401821869286283}
   - component: {fileID: 1757034534713272612}
   - component: {fileID: 1008581382770141731}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6287,7 +6287,7 @@ GameObject:
   - component: {fileID: 5443884576217856315}
   - component: {fileID: 3823506495596114095}
   - component: {fileID: 5603965810259101972}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MagBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6369,7 +6369,7 @@ GameObject:
   - component: {fileID: 3259732681593786976}
   - component: {fileID: 4643802264515047418}
   - component: {fileID: 8451230820464030588}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back Sight - Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

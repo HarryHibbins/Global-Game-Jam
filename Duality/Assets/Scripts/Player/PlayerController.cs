@@ -5,7 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private float currentHealth = maxHealth;
 
     public PlayerManager playerManager;
+    public GameObject weapon;
+    public GameLogic gameLogic;
 
     private void Awake()
     {
@@ -40,11 +42,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         PV = GetComponent<PhotonView>();
 
         //Gets the player manager for the local player
-        //playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+        playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+
+        gameLogic = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
+
 
         if (PV.IsMine)
         {
-            transform.Find("CameraHolder/RecoilCam/WeaponHolder").GetComponentInChildren<WeaponScript>().AssignRecoilCam();
+            //transform.Find("CameraHolder/RecoilCam/WeaponHolder").GetComponentInChildren<WeaponScript>().AssignRecoilCam();
+            weapon.GetComponent<WeaponScript>().AssignRecoilCam();
         }
     }
 
@@ -149,16 +155,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         if (currentHealth <= 0)
         {
+
+            gameLogic.UpdatePlayer(info.Sender, 1, 0);
+            gameLogic.UpdatePlayer(PV.Owner, 0, 1);
+
+            //Debug.Log(info.Sender);
             playerManager.Die();
-            Debug.Log(info.Sender);
-            PlayerManager[] pms = FindObjectsOfType<PlayerManager>();
-            foreach (PlayerManager pm in pms)
-            {
-                if (pm.ID == info.Sender.UserId)
-                {
-                    pm.kills++;
-                }
-            }
         }
     }
 }
