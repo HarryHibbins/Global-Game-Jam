@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     public PlayerManager playerManager;
     public GameObject weapon;
     public GameLogic gameLogic;
+    public GameObject gameManager;
 
     public GameObject scoreboard;
     public GameObject pauseMenu;
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         gameLogic = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
         scoreboard = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>().sb;
         pauseMenu = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>().pm;
-
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
 
         if (PV.IsMine)
         {
@@ -110,6 +111,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             pauseMenu.SetActive(false);
             isPaused = false;
             Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        if (gameManager.GetComponent<GameLogic>().gameOver)
+        {
+            gameObject.SetActive(false);
         }
     }
 
