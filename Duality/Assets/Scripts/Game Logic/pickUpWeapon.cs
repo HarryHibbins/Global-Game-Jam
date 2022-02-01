@@ -55,7 +55,7 @@ public class pickUpWeapon : MonoBehaviour
             if (weapon.weaponName == weaponList[weaponNumber].weaponName)
             {
                 weapon.hasWeapon = true;
-                Debug.Log("Picked up: " + weapon.weaponName);
+                Debug.Log("Picked up: " + weapon.weaponName + weapon.hasWeapon);
             }
         }
     }

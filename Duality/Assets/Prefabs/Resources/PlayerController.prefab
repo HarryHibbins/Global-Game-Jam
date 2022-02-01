@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletsLeft: 0
   bulletsShot: 0
-  stats: {fileID: 11400000, guid: 5e1f613a70a1eac4e9529c66315fcdd4, type: 2}
+  stats: {fileID: 11400000, guid: 8df62d2490685ae4fb6842bf60e3d50c, type: 2}
   fpsCam: {fileID: 7825098694279817834}
   attackPoint: {fileID: 7577672734497019697}
   whatIsEnemy:
