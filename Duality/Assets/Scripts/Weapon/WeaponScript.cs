@@ -239,7 +239,7 @@ public class WeaponScript : MonoBehaviour
             playerController.currentSensitivity = playerController.ps.scopedSensitivity;
             GetComponentInParent<PlayerMovement>().sensX = playerController.ps.scopedSensitivity;
             GetComponentInParent<PlayerMovement>().sensY = playerController.ps.scopedSensitivity;
-            Debug.Log("set sensitivity to " + playerController.ps.scopedSensitivity);
+            //Debug.Log("set sensitivity to " + playerController.ps.scopedSensitivity);
         }
         else
         {
@@ -249,7 +249,7 @@ public class WeaponScript : MonoBehaviour
             playerController.currentSensitivity = playerController.ps.unscopedSensitivity;
             GetComponentInParent<PlayerMovement>().sensX = playerController.ps.unscopedSensitivity;
             GetComponentInParent<PlayerMovement>().sensY = playerController.ps.unscopedSensitivity;
-            Debug.Log("set sensitivity to " + playerController.ps.scopedSensitivity);
+            //Debug.Log("set sensitivity to " + playerController.ps.scopedSensitivity);
         }
     }
 

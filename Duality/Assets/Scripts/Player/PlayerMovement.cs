@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
         cam.transform.localRotation = Quaternion.Euler(xRot, 0, tilt);                                                   // rotates the camera...
         transform.rotation = Quaternion.Euler(0f, yRot, 0f);                                                            //  ...and player to face the rotation governed by mouse input
-        Debug.Log("Moving cam by " + yRot);
+        //Debug.Log("Moving cam by " + yRot);
         if(!crouching)
             isGrounded = Physics.CheckSphere(transform.position - new Vector3(0, 1, 0), groundDist, groundMask);            // boolean is set by casting a checksphere at the players feet and checking...
         else                                                                                                                //  ...if the ground is within a small distance.
