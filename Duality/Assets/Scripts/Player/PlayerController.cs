@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    private PhotonView PV;
+    public PhotonView PV;
 
     private const float maxHealth = 100f;
     private float currentHealth = maxHealth;

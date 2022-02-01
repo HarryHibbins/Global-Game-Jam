@@ -15,25 +15,50 @@ public class WeaponSwitcher : MonoBehaviour
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+
     }
 
     private void Update()
     {
         if (PV.IsMine)
         {
-            if (Input.mouseScrollDelta.y > 0 && currentWeapon < weaponList.Count - 1)
+            if (Input.mouseScrollDelta.y > 0 || Input.GetKeyDown(KeyCode.Alpha2) && currentWeapon < weaponList.Count - 1)
             {
-                currentWeapon++;
-                UpdateGun();
+                nextWeapon();
+
             }
-            if (Input.mouseScrollDelta.y < 0 && currentWeapon > 0)
+            if (Input.mouseScrollDelta.y < 0  || Input.GetKeyDown(KeyCode.Alpha1) && currentWeapon > 0)
             {
-                currentWeapon--;
-                UpdateGun();
+                previousWeapon();
             }
         }
     }
 
+    private void nextWeapon()
+    {
+        if (currentWeapon < weaponList.Count -1)
+        {
+            currentWeapon++;
+        }
+        while (!weaponList[currentWeapon].hasWeapon && currentWeapon < weaponList.Count)
+        {
+            currentWeapon++;
+        }
+        UpdateGun();
+    }
+    private void previousWeapon()
+    {
+
+        if (currentWeapon > 0)
+        {
+            currentWeapon--;
+        }
+        while (!weaponList[currentWeapon].hasWeapon  && currentWeapon > 0)
+        {
+            currentWeapon--;
+        }
+        UpdateGun();
+    }
     void UpdateGun()
     {
         weaponScript.stats = weaponList[currentWeapon];
