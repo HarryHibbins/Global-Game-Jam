@@ -9,10 +9,9 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
-
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private float sprintSpeed, walkSpeed, jumpForce, smoothTime;
-    public float currentSensitivity, unScopedSensitivity, scopedSensitivity;
+    public float currentSensitivity/*, unScopedSensitivity, scopedSensitivity*/;
     [SerializeField] private Image healthBarImage;
     private float verticalLookRotation;
     private bool isGrounded;
@@ -34,10 +33,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     public GameLogic gameLogic;
 
     public GameObject scoreboard;
+    public GameObject pauseMenu;
+    public bool isPaused = false;
+
+    public PlayerSettings ps;
 
     private void Awake()
     {
-        currentSensitivity = unScopedSensitivity;
+        currentSensitivity = ps.unscopedSensitivity;
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
         groundCheck = GetComponentInChildren<GroundCheckTag>().transform;
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         gameLogic = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
         scoreboard = GameObject.FindGameObjectWithTag("Scoreboard");
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
 
 
         if (PV.IsMine)
@@ -59,7 +63,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     void Start()
     {
-
+        pauseMenu.SetActive(false);
         if (!PV.IsMine)
         {
             //Destroy the camera and rigidbody of the other player 
@@ -77,9 +81,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         {
             return;
         }
-        Look();
-        Move();
-        Jump();
+
+        if (!isPaused)
+        {
+            Look();
+            Move();
+            Jump();
+        }
+        
 
         if (Input.GetKey(KeyCode.Tab))
         {
@@ -88,6 +97,19 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         else
         { 
             scoreboard.SetActive(false);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape) && !isPaused)
+        {
+            pauseMenu.SetActive(true);
+            isPaused = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else if (Input.GetKeyUp(KeyCode.Escape) && isPaused)
+        {
+            pauseMenu.SetActive(false);
+            isPaused = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

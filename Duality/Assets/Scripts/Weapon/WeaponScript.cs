@@ -44,13 +44,13 @@ public class WeaponScript : MonoBehaviour
 
     private void Awake()
     {
-        startFOV = fpsCam.fieldOfView;
         bulletsLeft = stats.magazineSize;
         readyToShoot = true;
         //recoilScript = GameObject.FindGameObjectWithTag("RecoilCam").GetComponent<Recoil>();
         recoilScript = recoil.GetComponent<Recoil>();
         PV = GetComponent<PhotonView>();
         playerController = GetComponentInParent<PlayerController>();
+        startFOV = playerController.ps.FOV;
 
         foreach (Transform child in transform.root)
         {
@@ -158,7 +158,11 @@ public class WeaponScript : MonoBehaviour
     {
         if (PV.IsMine)
         {
-            MyInput();
+            if (!playerController.isPaused)
+            {
+                MyInput();
+            }
+            
 
             //Set Text
             if (stats.usesShells)
@@ -218,11 +222,11 @@ public class WeaponScript : MonoBehaviour
         }
         else if (!stats.usesScope)
         {
-            fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, startFOV, stats.adsSpeed * Time.deltaTime);
+            fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, playerController.ps.FOV, stats.adsSpeed * Time.deltaTime);
         }
         else 
         {
-            fpsCam.fieldOfView = startFOV;
+            fpsCam.fieldOfView = playerController.ps.FOV;
         }
 
         if (stats.usesScope && isADSing)
@@ -231,14 +235,14 @@ public class WeaponScript : MonoBehaviour
             weapon.gameObject.SetActive(false);
             crosshair.enabled = false;
             fpsCam.fieldOfView = 12f;
-            playerController.currentSensitivity = playerController.scopedSensitivity;
+            playerController.currentSensitivity = playerController.ps.scopedSensitivity;
         }
         else
         {
             scopeSprite.enabled = false;
             weapon.gameObject.SetActive(true);
             crosshair.enabled = true;
-            playerController.currentSensitivity = playerController.unScopedSensitivity;
+            playerController.currentSensitivity = playerController.ps.unscopedSensitivity;
         }
     }
 

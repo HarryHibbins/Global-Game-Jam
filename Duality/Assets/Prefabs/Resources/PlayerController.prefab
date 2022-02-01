@@ -468,8 +468,6 @@ MonoBehaviour:
   jumpForce: 300
   smoothTime: 0.15
   currentSensitivity: 0
-  unScopedSensitivity: 3
-  scopedSensitivity: 0.56
   healthBarImage: {fileID: 8267749461916135122}
   groundMask:
     serializedVersion: 2
@@ -477,6 +475,10 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weapon: {fileID: 1393872622840399343}
   gameLogic: {fileID: 0}
+  scoreboard: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  isPaused: 0
+  ps: {fileID: 11400000, guid: c30f5e636f1483141b95930bd8a0a0be, type: 2}
 --- !u!114 &5167363125794867140
 MonoBehaviour:
   m_ObjectHideFlags: 0

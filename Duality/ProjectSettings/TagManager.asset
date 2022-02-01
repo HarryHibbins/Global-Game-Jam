@@ -13,6 +13,7 @@ TagManager:
   - Net
   - Projectile
   - Scoreboard
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
