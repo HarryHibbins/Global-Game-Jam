@@ -26,11 +26,12 @@ public class GameLogic : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        players = new List<Player>();
+
     }
 
     private void Start()
     {
+        Debug.Log("SPAWN");
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             players.Add(p);
@@ -38,28 +39,12 @@ public class GameLogic : MonoBehaviourPunCallbacks
         }
     }
 
-    private void Update()
-    {
-        /*if (players.Count > 0)
-        {
-            player1name = players[0].NickName;
-            player1kills = (int)players[0].CustomProperties["Kills"];
-            player1deaths = (int)players[0].CustomProperties["Deaths"];
-        }
-        if (players.Count > 1)
-        {
-            player2name = players[1].NickName;
-            player2kills = (int)players[1].CustomProperties["Kills"];
-            player2deaths = (int)players[1].CustomProperties["Deaths"];
-        }*/
-        //Debug.Log(sblist[0].GetComponent<ScoreboardItem>()._id);
-    }
-
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         players.Add(newPlayer);
         SetPlayer(newPlayer);
     }
+
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
@@ -87,8 +72,25 @@ public class GameLogic : MonoBehaviourPunCallbacks
     void SetPlayer(Player player)
     {
         Hashtable hash = new Hashtable();
-        hash.Add("Kills", 0);
-        hash.Add("Deaths", 0);
+        int kills, deaths;
+        if (player.CustomProperties["Kills"] != null)
+        {
+            kills = (int)player.CustomProperties["Kills"];
+        }
+        else
+        {
+            kills = 0;
+        }
+        if (player.CustomProperties["Deaths"] != null)
+        {
+            deaths = (int)player.CustomProperties["Deaths"];
+        }
+        else
+        {
+            deaths = 0;
+        }
+        hash.Add("Kills", kills);
+        hash.Add("Deaths", deaths);
         player.SetCustomProperties(hash);
 
         GameObject scoreBoardItem = Instantiate(scoreboardItem, scoreboard.transform);
