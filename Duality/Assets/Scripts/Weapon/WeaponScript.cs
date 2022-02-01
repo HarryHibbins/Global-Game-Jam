@@ -341,7 +341,7 @@ public class WeaponScript : MonoBehaviour
                 //Debug.Log(rayHit.collider.name);
 
                 //If the hit object has the IDamagable interface, take damage equal to the weapon damage
-                rayHit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(stats.damage);
+                rayHit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(stats.damage, stats.weaponName);
                 PV.RPC("RPC_Shoot", RpcTarget.All, rayHit.point, rayHit.normal);
 
 

@@ -9,6 +9,7 @@ public class ProjectileExplosion : MonoBehaviour
     public Rigidbody rb;
     public GameObject explosion;
     public PhotonView pv;
+    public WeaponStats stats;
 
     //Stats
     [Range(0f, 1f)]
@@ -58,7 +59,7 @@ public class ProjectileExplosion : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].GetComponent<IDamageable>()?.TakeDamage(explosionDamage);
+            enemies[i].GetComponent<IDamageable>()?.TakeDamage(explosionDamage, stats.weaponName);
         }
 
         Invoke("Delay", 0.05f);

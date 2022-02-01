@@ -606,6 +606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53141999}
   - component: {fileID: 53141998}
+  - component: {fileID: 53142000}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -633,8 +634,11 @@ MonoBehaviour:
   player2deaths: 0
   scoreboardItem: {fileID: 1895757652196043288, guid: 54308fd73d6bc7b41baef61f18459b90, type: 3}
   scoreboard: {fileID: 504818199}
+  killfeed: {fileID: 1810923058}
+  killfeedItem: {fileID: 2236335445003725177, guid: cf4c6fb4d9f1c7a4997063c21e8f85eb, type: 3}
   sb: {fileID: 998861207}
   pm: {fileID: 6517960187748061510}
+  pv: {fileID: 0}
 --- !u!4 &53141999
 Transform:
   m_ObjectHideFlags: 0
@@ -25160,6 +25164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1810923059}
   - component: {fileID: 1810923060}
+  - component: {fileID: 1810923061}
   m_Layer: 5
   m_Name: Killfeed
   m_TagString: Untagged
@@ -25212,6 +25217,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1810923061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810923058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fd36c2131bca74e8add7c46f99314f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: []
 --- !u!1 &1811234861
 GameObject:
   m_ObjectHideFlags: 0

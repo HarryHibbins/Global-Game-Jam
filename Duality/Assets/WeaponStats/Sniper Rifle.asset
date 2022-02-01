@@ -38,4 +38,7 @@ MonoBehaviour:
   snapiness: 6
   returnSpeed: 2
   gunModel: {fileID: 6513462501660768856, guid: 584d72ac59799dc45bba39a317cba11d, type: 3}
+  icon: {fileID: 21300000, guid: 59a5051279fcf494fbc7158f5d868bd5, type: 3}
   projectileAmmo: {fileID: 0}
+  shootForce: 0
+  upwardForce: 0

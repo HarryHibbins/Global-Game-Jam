@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using Photon.Pun.UtilityScripts;
@@ -21,8 +22,13 @@ public class GameLogic : MonoBehaviourPunCallbacks
     public GameObject scoreboardItem;
     public GameObject scoreboard;
 
+    public GameObject killfeed;
+    public GameObject killfeedItem;
+
     public GameObject sb;
     public GameObject pm;
+
+    public PhotonView pv;
 
     private void Awake()
     {
@@ -31,6 +37,8 @@ public class GameLogic : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        pv = GetComponent<PhotonView>();
+
         Debug.Log("SPAWN");
         foreach (Player p in PhotonNetwork.PlayerList)
         {
@@ -95,6 +103,22 @@ public class GameLogic : MonoBehaviourPunCallbacks
 
         GameObject scoreBoardItem = Instantiate(scoreboardItem, scoreboard.transform);
         scoreBoardItem.GetComponent<ScoreboardItem>().player = player;
+    }
+    public void AddKillfeed(Player killer, Player victim, string weaponname)
+    {
+        pv.RPC("RPC_AddKillfeed", RpcTarget.All, killer, victim, weaponname);
+    }
+
+    [PunRPC]
+    void RPC_AddKillfeed(Player killer, Player victim, string weaponname)
+    {
+        Debug.Log(weaponname);
+        GameObject killFeedItem = Instantiate(killfeedItem, killfeed.transform);
+        killFeedItem.GetComponent<KillfeedItem>().killerText.text = killer.NickName;
+        killFeedItem.GetComponent<KillfeedItem>().victimText.text = victim.NickName;
+        killFeedItem.GetComponent<KillfeedItem>().GetSprite(weaponname);
+
+        Destroy(killFeedItem, 5);
     }
 }
 

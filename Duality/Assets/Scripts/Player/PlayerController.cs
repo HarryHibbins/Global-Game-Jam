@@ -162,15 +162,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     }
 
     //Runs on the shooters computer
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string weaponname)
     {
         //Calls the RPC called RPC_TakeDamage
-        PV.RPC("RPC_TakeDamage", RpcTarget.All, damage);
+        PV.RPC("RPC_TakeDamage", RpcTarget.All, damage, weaponname);
     }
 
     //Runs on everyone elses computer, but on the person hit will receive the damage because of the if !PV.Mine
     [PunRPC]
-    void RPC_TakeDamage(float damage, PhotonMessageInfo info)
+    void RPC_TakeDamage(float damage, string weaponname, PhotonMessageInfo info)
     {
         if (!PV.IsMine)
         {
@@ -188,9 +188,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         if (currentHealth <= 0)
         {
-
             gameLogic.UpdatePlayer(info.Sender, 1, 0);
             gameLogic.UpdatePlayer(PV.Owner, 0, 1);
+
+            gameLogic.AddKillfeed(info.Sender, PV.Owner, weaponname);
 
             //Debug.Log(info.Sender);
             playerManager.Die();

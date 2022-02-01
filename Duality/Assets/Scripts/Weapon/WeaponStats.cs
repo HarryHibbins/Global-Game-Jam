@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "WeaponStats", menuName = "My Assets/Weapons")]
 public class WeaponStats : ScriptableObject
@@ -30,6 +31,7 @@ public class WeaponStats : ScriptableObject
 
     [Header("------------Weapon Model------------")]
     public GameObject gunModel;
+    public Sprite icon;
 
     [Header("------------Projectile Ammo------------")]
     public GameObject projectileAmmo;
