@@ -40,7 +40,7 @@ public class WeaponSwitcher : MonoBehaviour
         {
             currentWeapon++;
         }
-        while (!weaponList[currentWeapon].hasWeapon && currentWeapon < weaponList.Count)
+        while (!weaponList[currentWeapon].hasWeapon && currentWeapon < weaponList.Count-1)
         {
             currentWeapon++;
         }
