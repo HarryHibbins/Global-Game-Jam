@@ -23,9 +23,13 @@ public class PlayerMovement : MonoBehaviour
     public bool crouching;
     public bool sprinting;
     public bool sliding;
+    public bool wallRunning;
+    public bool scoped;
 
     Vector3 moveDirection;                      // vector formed from axis input
     Rigidbody rb;                               // the rigidbody
+
+    public GameObject weaponHolder;
 
     // variables used for checking if the player is grounded
     [Header("Ground Detection")]
@@ -43,8 +47,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Looking + Camera")]
 
     float xRot, yRot, mouseX, mouseY;           // used for rotating the player and cam with mouse input
-    [SerializeField] float sensX;               //
-    [SerializeField] float sensY;               // sensitivity values
+    public float sensX;               //
+    public float sensY;               // sensitivity values
     [SerializeField] float fov;
     [SerializeField] float wallRunFOV;
     [SerializeField] float wallRunFOVTime;
@@ -53,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Camera fovCam;
     public float tilt { get; private set; }
 
-    [SerializeField] Transform cam;             // the camera transform used by the player
+    [SerializeField] Camera cam;             // the camera transform used by the player
     [SerializeField] Transform orientation;
 
 
@@ -63,33 +67,47 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float minimumJumpHeight = 1.5f;
     public float wallRunGravity;
 
-    bool wallLeft = false;
-    bool wallRight = false;
+    public bool wallLeft = false;
+    public bool wallRight = false;
 
     RaycastHit leftWallHit;
     RaycastHit rightWallHit;
 
 
-
+    PlayerController playerController;
 
 
     void Start()
     {
-        
+        cam = GetComponentInChildren<Camera>();
         rb = GetComponent<Rigidbody>();                                 // get the rb component
         rb.freezeRotation = true;
         rb.drag = rbDragGround;                                         // set initial drag to the grounded value
         Cursor.lockState = CursorLockMode.Locked;                       // lock cursor movement
         Cursor.visible = false;                                         //and hide it
+
+        playerController = GetComponentInParent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetInput();                                                                                                     // function to collect mouse and keyboard inputs
+        if (!GetComponent<PlayerController>().isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Locked;                       // lock cursor movement
+            Cursor.visible = false;
+            GetInput();                                                     // function to collect mouse and keyboard inputs
 
-        cam.transform.localRotation = Quaternion.Euler(xRot, yRot, tilt);                                                   // rotates the camera...
-        orientation.transform.rotation = Quaternion.Euler(0f, yRot, 0f);                                                            //  ...and player to face the rotation governed by mouse input
+        }
+        else 
+        {
+            Cursor.lockState = CursorLockMode.None;                       
+            Cursor.visible = true;
+        }
+
+        cam.transform.localRotation = Quaternion.Euler(xRot, 0, tilt);                                                   // rotates the camera...
+        transform.rotation = Quaternion.Euler(0f, yRot, 0f);                                                            //  ...and player to face the rotation governed by mouse input
+        Debug.Log("Moving cam by " + yRot);
         if(!crouching)
             isGrounded = Physics.CheckSphere(transform.position - new Vector3(0, 1, 0), groundDist, groundMask);            // boolean is set by casting a checksphere at the players feet and checking...
         else                                                                                                                //  ...if the ground is within a small distance.
@@ -98,13 +116,15 @@ public class PlayerMovement : MonoBehaviour
         if (crouching)
         {
             transform.localScale = new Vector3(1f, 0.5f, 1f);
+            weaponHolder.transform.localScale = new Vector3(1f, 2f, 1f);
         }
         else 
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
+            weaponHolder.transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !GetComponent<PlayerController>().isPaused) 
         {
             PlayerJump();                                                                               // if the player is grounded and presses space the jump function is called
         }
@@ -151,7 +171,14 @@ public class PlayerMovement : MonoBehaviour
             rb.useGravity = true;                                                                       // use gravity when in mid air
             rb.drag = rbDragAir;                                                                        // set the rb drag to air value
         }
-
+        if (sprinting)
+        {
+            fovCam.fieldOfView = Mathf.Lerp(fovCam.fieldOfView, 70, wallRunFOVTime * Time.deltaTime);
+        }
+        else 
+        {
+            fovCam.fieldOfView = Mathf.Lerp(fovCam.fieldOfView, 60, wallRunFOVTime * Time.deltaTime);
+        }
         CheckWall();
     }
 
@@ -177,6 +204,8 @@ public class PlayerMovement : MonoBehaviour
 
         mouseX = Input.GetAxisRaw("Mouse X");                                                           // mouse swipes
         mouseY = Input.GetAxisRaw("Mouse Y");                                                           //
+
+        //Debug.Log("Moving cam by " + mouseY + " and " + mouseX);
 
         yRot += mouseX * sensX;                                                                         // increase input scale by sensitivity values
         xRot -= mouseY * sensY;                                                                         //
@@ -222,7 +251,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();                                                                                   // called in fixedupdate because rigidbodies?
+        if (!GetComponent<PlayerController>().isPaused) 
+        {
+
+            MovePlayer();
+
+        }                                                                      // called in fixedupdate because rigidbodies?
     }
 
     void MovePlayer()                                                                                                       // function to move player according to the inputs gathered
@@ -243,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerSlide() 
     {
-        bool sliding = true;
+        sliding = true;
         Debug.Log("Sliding?");
         rb.AddForce(transform.forward * jumpHeight * 25, ForceMode.Force);
 
@@ -293,6 +327,7 @@ public class PlayerMovement : MonoBehaviour
 
     void StartWallRun() 
     {
+        wallRunning = true;
         rb.useGravity = false;
 
         rb.AddForce(Vector3.down * wallRunGravity, ForceMode.Force);
@@ -328,6 +363,7 @@ public class PlayerMovement : MonoBehaviour
 
     void EndWallRun() 
     {
+        wallRunning = false;
         rb.useGravity = true;
         fovCam.fieldOfView = Mathf.Lerp(fovCam.fieldOfView, fov, wallRunFOVTime * Time.deltaTime);
         tilt = Mathf.Lerp(tilt, 0f, camTiltTime * Time.deltaTime);

@@ -214,13 +214,13 @@ public class WeaponScript : MonoBehaviour
             isADSing = false;
         }
 
-
+        PlayerMovement pm = GetComponentInParent<PlayerMovement>();
         // Manages FOV for ADS/Scoping & Disabling UI elements for scope
-        if (isADSing && !stats.usesScope)
+        if (isADSing && !stats.usesScope && !pm.sliding && !pm.wallRunning && !pm.sprinting)
         {
             fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 45f, stats.adsSpeed * Time.deltaTime);
         }
-        else if (!stats.usesScope)
+        else if (!stats.usesScope && !pm.sliding && !pm.wallRunning && !pm.sprinting)
         {
             fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, playerController.ps.FOV, stats.adsSpeed * Time.deltaTime);
         }
@@ -231,11 +231,15 @@ public class WeaponScript : MonoBehaviour
 
         if (stats.usesScope && isADSing)
         {
+            
             scopeSprite.enabled = true;
             weapon.gameObject.SetActive(false);
             crosshair.enabled = false;
             fpsCam.fieldOfView = 12f;
             playerController.currentSensitivity = playerController.ps.scopedSensitivity;
+            GetComponentInParent<PlayerMovement>().sensX = playerController.ps.scopedSensitivity;
+            GetComponentInParent<PlayerMovement>().sensY = playerController.ps.scopedSensitivity;
+            Debug.Log("set sensitivity to " + playerController.ps.scopedSensitivity);
         }
         else
         {
@@ -243,6 +247,9 @@ public class WeaponScript : MonoBehaviour
             weapon.gameObject.SetActive(true);
             crosshair.enabled = true;
             playerController.currentSensitivity = playerController.ps.unscopedSensitivity;
+            GetComponentInParent<PlayerMovement>().sensX = playerController.ps.unscopedSensitivity;
+            GetComponentInParent<PlayerMovement>().sensY = playerController.ps.unscopedSensitivity;
+            Debug.Log("set sensitivity to " + playerController.ps.scopedSensitivity);
         }
     }
 

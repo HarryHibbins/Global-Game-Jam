@@ -491,7 +491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &423376691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +516,7 @@ MonoBehaviour:
   crouching: 0
   sprinting: 0
   sliding: 0
+  wallRunning: 0
   groundDist: 0.4
   isGrounded: 0
   groundMask:
@@ -529,11 +530,13 @@ MonoBehaviour:
   camTilt: 20
   camTiltTime: 20
   fovCam: {fileID: 257305924}
-  cam: {fileID: 1804029523}
+  cam: {fileID: 257305924}
   orientation: {fileID: 154598329}
   wallDistance: 0.75
   minimumJumpHeight: 3
   wallRunGravity: 0.1
+  wallLeft: 0
+  wallRight: 0
 --- !u!54 &423376692
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2000,7 +2003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1804029522
 MonoBehaviour:
   m_ObjectHideFlags: 0
