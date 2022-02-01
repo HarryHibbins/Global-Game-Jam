@@ -17,8 +17,10 @@ public class WLButton : MonoBehaviour
         
     }
 
-    public void MainMenu() 
+    public void MainMenu()
     {
+        this.gameObject.SetActive(false);
         SceneManager.LoadScene(0);
     }
+
 }

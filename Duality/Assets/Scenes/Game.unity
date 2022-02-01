@@ -628,11 +628,15 @@ MonoBehaviour:
   player1name: 
   player1kills: 0
   player1deaths: 0
+  killsToWin: 10
   player2name: 
   player2kills: 0
   player2deaths: 0
+  gameOver: 0
   scoreboardItem: {fileID: 1895757652196043288, guid: 54308fd73d6bc7b41baef61f18459b90, type: 3}
   scoreboard: {fileID: 504818199}
+  endScreen: {fileID: 983157979}
+  endText: {fileID: 983157978}
   killfeed: {fileID: 1810923058}
   killfeedItem: {fileID: 2236335445003725177, guid: cf4c6fb4d9f1c7a4997063c21e8f85eb, type: 3}
   sb: {fileID: 998861207}
@@ -12378,7 +12382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2566593123928368421, guid: 6fe7afe8d5f432747a4b639bdf78b6e0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2566593123928368423, guid: 6fe7afe8d5f432747a4b639bdf78b6e0, type: 3}
       propertyPath: m_RootOrder
@@ -12446,6 +12450,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe7afe8d5f432747a4b639bdf78b6e0, type: 3}
+--- !u!114 &983157978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2566593124707552278, guid: 6fe7afe8d5f432747a4b639bdf78b6e0, type: 3}
+  m_PrefabInstance: {fileID: 983157977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &983157979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2566593123928368421, guid: 6fe7afe8d5f432747a4b639bdf78b6e0, type: 3}
+  m_PrefabInstance: {fileID: 983157977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &988021198
 GameObject:
   m_ObjectHideFlags: 0

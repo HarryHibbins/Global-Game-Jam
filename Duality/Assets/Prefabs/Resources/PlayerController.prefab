@@ -560,6 +560,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weapon: {fileID: 1393872622840399343}
   gameLogic: {fileID: 0}
+  gameManager: {fileID: 0}
   scoreboard: {fileID: 0}
   pauseMenu: {fileID: 0}
   isPaused: 0

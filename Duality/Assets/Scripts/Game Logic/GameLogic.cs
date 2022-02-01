@@ -14,13 +14,17 @@ public class GameLogic : MonoBehaviourPunCallbacks
     public string player1name;
     public int player1kills;
     public int player1deaths;
+    public int killsToWin;
     [Space(5)]
     public string player2name;
     public int player2kills;
     public int player2deaths;
+    public bool gameOver;
 
     public GameObject scoreboardItem;
     public GameObject scoreboard;
+    public GameObject endScreen;
+    public Text endText;
 
     public GameObject killfeed;
     public GameObject killfeedItem;
@@ -120,5 +124,29 @@ public class GameLogic : MonoBehaviourPunCallbacks
 
         Destroy(killFeedItem, 5);
     }
+
+    private void Update()
+    {
+        foreach (Player p in players)
+        {
+
+
+            if (p.CustomProperties["Kills"] != null && (int)p.CustomProperties["Kills"] > killsToWin - 1)
+            {
+                gameOver = true;
+                endText.text = "'" + p.NickName + "' was the first to reach " + killsToWin + " kills and claims victory! /n Press the button below to be returned to the main menu:";
+                GameObject[] playerObjList = GameObject.FindGameObjectsWithTag("Player");
+                foreach (GameObject player in playerObjList)
+                {
+                    player.GetComponent<PlayerController>().isPaused = true;
+                }
+                endScreen.SetActive(true);
+
+            }
+        }
+
+
+    }
+
 }
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -75,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     PlayerController playerController;
+    PhotonView PV;
 
 
     void Start()
@@ -86,12 +89,17 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;                       // lock cursor movement
         Cursor.visible = false;                                         //and hide it
 
-        playerController = GetComponentInParent<PlayerController>();
+        PV = GetComponent<PhotonView>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!PV.IsMine) 
+        {
+            return;        
+        }
+
         if (!GetComponent<PlayerController>().isPaused)
         {
             Cursor.lockState = CursorLockMode.Locked;                       // lock cursor movement
@@ -251,6 +259,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!PV.IsMine)
+        {
+            return;        
+        }
+
         if (!GetComponent<PlayerController>().isPaused) 
         {
 
