@@ -32,6 +32,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public Toggle map1Button;
     public Toggle map2Button;
+    public Toggle gamemode1Button;
+    public Toggle gamemode2Button;
 
     private void Start()
     {
@@ -44,10 +46,18 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= minPlayerCount)
         {
             playButton.SetActive(true);
+            map1Button.gameObject.SetActive(true);
+            map2Button.gameObject.SetActive(true);
+            gamemode1Button.gameObject.SetActive(true);
+            gamemode2Button.gameObject.SetActive(true);
         }
         else 
         {
             playButton.SetActive(false);
+            map1Button.gameObject.SetActive(false);
+            map2Button.gameObject.SetActive(false);
+            gamemode1Button.gameObject.SetActive(false);
+            gamemode2Button.gameObject.SetActive(false);
         }
     }
 
@@ -157,11 +167,25 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         if (map1Button.isOn)
         {
-            PhotonNetwork.LoadLevel("Game");
+            if (gamemode1Button.isOn)
+            {
+                PhotonNetwork.LoadLevel("Game");
+            }
+            else if (gamemode2Button.isOn)
+            {
+                //Play map 1 looter shooter
+            }
         }
         else if (map2Button.isOn)
         {
-            PhotonNetwork.LoadLevel("MainMenu");
+            if (gamemode1Button.isOn)
+            {
+                //Play map 2 deathmatch
+            }
+            else if (gamemode2Button.isOn)
+            {
+                //Play map 2 looter shooter
+            }
         }
         
     }
