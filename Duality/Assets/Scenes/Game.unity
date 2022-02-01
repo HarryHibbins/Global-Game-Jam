@@ -628,6 +628,8 @@ MonoBehaviour:
   player2deaths: 0
   scoreboardItem: {fileID: 1895757652196043288, guid: 54308fd73d6bc7b41baef61f18459b90, type: 3}
   scoreboard: {fileID: 504818199}
+  sb: {fileID: 998861207}
+  pm: {fileID: 6517960187748061510}
 --- !u!4 &53141999
 Transform:
   m_ObjectHideFlags: 0

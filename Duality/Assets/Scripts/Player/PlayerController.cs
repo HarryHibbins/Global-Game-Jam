@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
 
         gameLogic = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
-        scoreboard = GameObject.FindGameObjectWithTag("Scoreboard");
-        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        scoreboard = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>().sb;
+        pauseMenu = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>().pm;
 
 
         if (PV.IsMine)

@@ -21,6 +21,9 @@ public class GameLogic : MonoBehaviourPunCallbacks
     public GameObject scoreboardItem;
     public GameObject scoreboard;
 
+    public GameObject sb;
+    public GameObject pm;
+
     private void Awake()
     {
         players = new List<Player>();
