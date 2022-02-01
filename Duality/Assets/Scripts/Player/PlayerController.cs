@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     public GameObject weapon;
     public GameLogic gameLogic;
 
+    public GameObject scoreboard;
+
     private void Awake()
     {
         currentSensitivity = unScopedSensitivity;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
 
         gameLogic = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
+        scoreboard = GameObject.FindGameObjectWithTag("Scoreboard");
 
 
         if (PV.IsMine)
@@ -78,6 +81,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         Move();
         Jump();
 
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            scoreboard.SetActive(true);
+        }
+        else
+        { 
+            scoreboard.SetActive(false);
+        }
     }
 
     private void FixedUpdate()

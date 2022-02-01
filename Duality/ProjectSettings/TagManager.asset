@@ -12,6 +12,7 @@ TagManager:
   - FiringPoint
   - Net
   - Projectile
+  - Scoreboard
   layers:
   - Default
   - TransparentFX
