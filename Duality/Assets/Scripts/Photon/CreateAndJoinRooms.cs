@@ -51,7 +51,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         if (roomInputField.text.Length >= 1)
         {
-            PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { MaxPlayers = 3, PublishUserId = true });
+            PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { MaxPlayers = 4, PublishUserId = true });
         }
     }
 

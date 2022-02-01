@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     void Start()
     {
-        pauseMenu.SetActive(false);
         if (!PV.IsMine)
         {
             //Destroy the camera and rigidbody of the other player 
@@ -71,6 +70,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             Destroy(rb);
             //Destroy(transform.Find("CameraHolder/RecoilCam/WeaponCam/WeaponHolder").gameObject);
         }
+        pauseMenu.SetActive(false);
     }
 
     void Update()
