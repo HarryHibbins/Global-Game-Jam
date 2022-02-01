@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
 using Photon.Realtime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -169,5 +171,22 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             //Debug.Log(info.Sender);
             playerManager.Die();
         }
+    }
+    
+    
+    [PunRPC]
+    void RPC_PickupWeapon(string name)
+    {
+        Debug.Log("Other player picked up weapon");
+        GameObject SpawnPoints = GameObject.FindGameObjectWithTag("WeaponSpawnPoints");
+        foreach (Transform spawnPoint in SpawnPoints.transform)
+        {
+            if (spawnPoint.name == name)
+            {
+                Debug.Log("This spawn point needs to respawn " +name);
+                StartCoroutine(spawnPoint.GetComponentInChildren<pickUpWeapon>().RespawnWeapon());
+            }
+        }
+        //RespawnWeapon();
     }
 }

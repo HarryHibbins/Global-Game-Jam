@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpawnPointManager : MonoBehaviour
+public class PlayerSpawnPointManager : MonoBehaviour
 {
-    public static SpawnPointManager Instance;
-    [SerializeField] private List<Transform> spawnPoints;
+    public static PlayerSpawnPointManager Instance;
+    public List<Transform> spawnPoints;
 
     private void Start()
     {

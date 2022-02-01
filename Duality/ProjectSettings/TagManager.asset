@@ -12,6 +12,7 @@ TagManager:
   - FiringPoint
   - Net
   - Projectile
+  - WeaponSpawnPoints
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,29 +26,45 @@ public class pickUpWeapon : MonoBehaviour
     {
         modelHolder = transform.GetChild(0).gameObject;
         model = modelHolder.transform.GetChild(0).gameObject;
+
+        transform.name = transform.parent.name;
         
         
-        RespawnWeapon();
+        foreach (Transform child in model.gameObject.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        weaponNumber = Random.Range(0, weaponList.Count);
+        
+
+        spawnedWeapon = Instantiate(weaponList[weaponNumber].gunModel, model.transform.position, model.transform.rotation, model.transform);
+        spawnedWeapon.transform.parent = model.transform;
     }
+    
 
     void Update()
     {
         modelHolder.transform.Rotate(new Vector3(0,45,0) * rotationSpeed * Time.deltaTime);
     }
 
-    private void RespawnWeapon()
+    public IEnumerator RespawnWeapon()
     {
 
         foreach (Transform child in model.gameObject.transform)
         {
             Destroy(child.gameObject);
         }
+   
         weaponNumber = Random.Range(0, weaponList.Count);
-        spawnedWeapon = Instantiate(weaponList[weaponNumber].gunModel, model.transform.position, model.transform.rotation, model.transform);
+        
+        yield return new WaitForSeconds(3f);
 
+
+        spawnedWeapon = Instantiate(weaponList[weaponNumber].gunModel, model.transform.position, model.transform.rotation, model.transform);
+        spawnedWeapon.transform.parent = model.transform;
     }
 
-    private void PickUpWeapon(WeaponSwitcher player)
+    public void PickUpWeapon(WeaponSwitcher player)
     {
         foreach (var weapon in player.weaponList)
         {
@@ -62,8 +79,26 @@ public class pickUpWeapon : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>().PV.IsMine)
         {
+            String tempName = null;
+            GameObject SpawnPoints = GameObject.FindGameObjectWithTag("WeaponSpawnPoints");
+            foreach (Transform spawnPoint in SpawnPoints.transform)
+            {
+                if (spawnPoint.GetChild(0).name == transform.name)
+                {
+                    tempName = spawnPoint.GetChild(0).name;
+                }
+            }
+
             PickUpWeapon(other.GetComponent<WeaponSwitcher>());
-            RespawnWeapon();
+            StartCoroutine(RespawnWeapon());
+      
+            other.GetComponent<PlayerController>().PV.RPC("RPC_PickupWeapon", RpcTarget.Others, tempName);
+
         }
     }
+
+
+    
+  
+    
 }

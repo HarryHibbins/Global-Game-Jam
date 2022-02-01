@@ -13048,7 +13048,7 @@ GameObject:
   - component: {fileID: 3305571932719233090}
   - component: {fileID: -1143601814611745030}
   m_Layer: 0
-  m_Name: Temp Model - Shotgun
+  m_Name: Temp Model - Shotgun 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

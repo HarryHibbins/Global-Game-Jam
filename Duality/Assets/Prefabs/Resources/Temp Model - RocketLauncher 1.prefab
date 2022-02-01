@@ -1787,7 +1787,7 @@ GameObject:
   - component: {fileID: 3305571932719233090}
   - component: {fileID: -2868004992846537957}
   m_Layer: 0
-  m_Name: Temp Model - RocketLauncher
+  m_Name: Temp Model - RocketLauncher 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
