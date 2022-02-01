@@ -90,6 +90,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         {
             RoomItem newRoom = Instantiate(roomItemPrefab, contentObject);
             newRoom.SetRoomName(room.Name);
+            newRoom.SetRoomCount(room.PlayerCount, room.MaxPlayers);
             roomItemsList.Add(newRoom);
         }
     }
