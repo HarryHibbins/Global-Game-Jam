@@ -627,6 +627,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8df62d2490685ae4fb6842bf60e3d50c, type: 2}
   - {fileID: 11400000, guid: 2132cf17c3811bc4a9e76be3020df2ec, type: 2}
   weaponScript: {fileID: 8869223960032138883}
+  recoil: {fileID: 9066150976003127527}
   currentWeapon: 0
   PV: {fileID: 0}
 --- !u!1 &3573684160796221757
