@@ -30,9 +30,13 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public GameObject playButton;
     public int minPlayerCount = 1;
 
+    public Toggle map1Button;
+    public Toggle map2Button;
+
     private void Start()
     {
         PhotonNetwork.JoinLobby();
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Update()
@@ -86,6 +90,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         {
             RoomItem newRoom = Instantiate(roomItemPrefab, contentObject);
             newRoom.SetRoomName(room.Name);
+            newRoom.SetRoomCount(room.PlayerCount, room.MaxPlayers);
             roomItemsList.Add(newRoom);
         }
     }
@@ -150,25 +155,14 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel("Game");
+        if (map1Button.isOn)
+        {
+            PhotonNetwork.LoadLevel("Game");
+        }
+        else if (map2Button.isOn)
+        {
+            PhotonNetwork.LoadLevel("MainMenu");
+        }
+        
     }
-
-
-    /*public void createRoom()
-    {
-        PhotonNetwork.CreateRoom(createInput.text);
-    }
-
-    public void joinRoom()
-    {
-        PhotonNetwork.JoinRoom(joinInput.text);
-        Debug.Log("Joined Room");
-    }*/
-
-    /*public override void OnJoinedRoom()
-    {
-        PhotonNetwork.LoadLevel("Game");
-        Debug.Log("Load level");
-
-    }*/
 }

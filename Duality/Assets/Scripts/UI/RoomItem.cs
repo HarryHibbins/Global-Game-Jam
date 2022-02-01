@@ -7,6 +7,7 @@ using TMPro;
 public class RoomItem : MonoBehaviour
 {
     public TMP_Text roomName;
+    public TMP_Text playersText;
     private CreateAndJoinRooms manager;
 
     private void Start()
@@ -17,6 +18,11 @@ public class RoomItem : MonoBehaviour
     public void SetRoomName(string _roomName)
     {
         roomName.text = _roomName;
+    }
+
+    public void SetRoomCount(int current, int max)
+    {
+        playersText.text = current.ToString() + "/" + max.ToString();
     }
 
     public void OnClickItem()

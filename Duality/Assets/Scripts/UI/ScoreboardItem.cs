@@ -7,6 +7,7 @@ using Photon.Realtime;
 
 public class ScoreboardItem : MonoBehaviour
 {
+    public Player player;
     public TMP_Text usernameText;
     public TMP_Text killsText;
     public TMP_Text deathsText;
@@ -16,15 +17,18 @@ public class ScoreboardItem : MonoBehaviour
     public int kills;
     public int deaths;
 
-    public Player player;
-
     private void Update()
     {
+        if (player.CustomProperties["Kills"] != null)
+        {
+            kills = (int)player.CustomProperties["Kills"];
+        }
+        if (player.CustomProperties["Deaths"] != null)
+        {
+            deaths = (int)player.CustomProperties["Deaths"];
+        }
         username = player.NickName;
         _id = player.ActorNumber;
-        kills = (int)player.CustomProperties["Kills"];
-        deaths = (int)player.CustomProperties["Deaths"];
-
         usernameText.text = username;
         killsText.text = kills.ToString();
         deathsText.text = deaths.ToString();

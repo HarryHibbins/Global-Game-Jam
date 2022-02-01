@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private void Awake()
     {
         currentSensitivity = ps.unscopedSensitivity;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
         groundCheck = GetComponentInChildren<GroundCheckTag>().transform;
         PV = GetComponent<PhotonView>();
@@ -84,9 +84,9 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         if (!isPaused)
         {
-            Look();
-            Move();
-            Jump();
+            //Look();
+            //Move();
+            //Jump();
         }
         
 
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         {
             return;
         }
-        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        //rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
 
 
