@@ -513,6 +513,7 @@ MonoBehaviour:
   sprinting: 0
   sliding: 0
   wallRunning: 0
+  scoped: 0
   weaponHolder: {fileID: 4497672148909279909}
   groundDist: 0.4
   isGrounded: 0
