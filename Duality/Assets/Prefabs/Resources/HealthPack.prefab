@@ -64,7 +64,7 @@ MonoBehaviour:
   modelHolder: {fileID: 0}
   healthPackHolder: {fileID: 0}
   spawnedHealthPack: {fileID: 0}
-  respawnTime: 3
+  respawnTime: 30
   rotationSpeed: 2
 --- !u!114 &5180215112556934001
 MonoBehaviour:
@@ -282,7 +282,6 @@ GameObject:
   - component: {fileID: 7063400514290772388}
   - component: {fileID: 7791911852465731089}
   - component: {fileID: 6556925691762118562}
-  - component: {fileID: 2366633705794101274}
   m_Layer: 0
   m_Name: HealthPackModel
   m_TagString: Untagged
@@ -344,18 +343,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
   m_UseLocal: 1
---- !u!114 &2366633705794101274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7063400514290772391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59daa715f57d2324d9ced6b09bebab84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &939198161748913188
 PrefabInstance:
   m_ObjectHideFlags: 0

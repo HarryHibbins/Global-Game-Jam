@@ -10559,7 +10559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &762021392
 GameObject:
@@ -11989,7 +11989,7 @@ Transform:
   - {fileID: 948845085}
   - {fileID: 2075233880}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &885675741
 GameObject:
@@ -12716,7 +12716,7 @@ Transform:
   - {fileID: 231976721}
   - {fileID: 1294569253}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976848901
 GameObject:
@@ -24838,7 +24838,7 @@ GameObject:
   - component: {fileID: 1697989400}
   - component: {fileID: 1697989399}
   m_Layer: 0
-  m_Name: Spawn Players
+  m_Name: Spawn Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
