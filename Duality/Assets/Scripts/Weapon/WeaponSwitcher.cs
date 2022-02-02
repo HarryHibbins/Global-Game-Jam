@@ -100,6 +100,7 @@ public class WeaponSwitcher : MonoBehaviour
             
             if (!weaponList[weaponList.Count-1].hasWeapon && currentWeapon == weaponList.Count-2)
             {
+                Debug.Log("Reset");
                 currentWeapon = 0;
                 UpdateGun();
                 return;
