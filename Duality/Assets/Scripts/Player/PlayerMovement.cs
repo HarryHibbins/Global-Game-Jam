@@ -285,6 +285,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerJump() 
     {
+        FindObjectOfType<AudioManager>().Play("PlayerJumping");
         rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);              // applies an impulse force to launch the player upwards with an initial velocity governed by jumpHeight
     }
 
