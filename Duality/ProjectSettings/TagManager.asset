@@ -12,6 +12,8 @@ TagManager:
   - FiringPoint
   - Net
   - Projectile
+  - WeaponSpawnPoints
+  - HealthSpawnPoints
   - Scoreboard
   - PauseMenu
   - Weapon

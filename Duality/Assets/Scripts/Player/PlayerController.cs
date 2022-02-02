@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
 using Photon.Realtime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    private PhotonView PV;
+    public PhotonView PV;
 
     private const float maxHealth = 100f;
     private float currentHealth = maxHealth;
@@ -174,6 +176,13 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         PV.RPC("RPC_TakeDamage", RpcTarget.All, damage, weaponname);
     }
 
+    public void HealthPickup()
+    {
+        currentHealth = maxHealth;
+        healthBarImage.fillAmount = currentHealth / maxHealth;
+    }
+    
+
     //Runs on everyone elses computer, but on the person hit will receive the damage because of the if !PV.Mine
     [PunRPC]
     void RPC_TakeDamage(float damage, string weaponname, PhotonMessageInfo info)
@@ -201,6 +210,38 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
             //Debug.Log(info.Sender);
             playerManager.Die();
+        }
+    }
+    
+    
+    [PunRPC]
+    void RPC_PickupWeapon(string name)
+    {
+        Debug.Log("Other player picked up weapon");
+        GameObject SpawnPoints = GameObject.FindGameObjectWithTag("WeaponSpawnPoints");
+        foreach (Transform spawnPoint in SpawnPoints.transform)
+        {
+            if (spawnPoint.name == name)
+            {
+                Debug.Log("This spawn point needs to respawn " +name);
+                StartCoroutine(spawnPoint.GetComponentInChildren<pickUpWeapon>().RespawnWeapon());
+            }
+        }
+    }
+    
+        
+    [PunRPC]
+    void RPC_PickupHealth(string name)
+    {
+        Debug.Log("Other player picked up health");
+        GameObject SpawnPoints = GameObject.FindGameObjectWithTag("HealthSpawnPoints");
+        foreach (Transform spawnPoint in SpawnPoints.transform)
+        {
+            if (spawnPoint.name == name)
+            {
+                Debug.Log("This spawn point needs to respawn " +name);
+                StartCoroutine(spawnPoint.GetComponentInChildren<HealthPack>().respawnHealthpack());
+            }
         }
     }
 }

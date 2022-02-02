@@ -42,6 +42,8 @@ MonoBehaviour:
   - RPC_TakeDamage
   - RPC_Shoot
   - RPC_Explode
+  - RPC_PickupWeapon
+  - RPC_PickupHealth
   - RPC_AddKillfeed
   DisableAutoOpenWizard: 1
   ShowSettings: 1

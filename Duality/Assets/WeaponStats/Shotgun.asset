@@ -29,6 +29,7 @@ MonoBehaviour:
   usesShells: 1
   usesScope: 0
   isHitscan: 1
+  hasWeapon: 0
   recoilX: -2.5
   recoilY: 1
   recoilZ: 0.15

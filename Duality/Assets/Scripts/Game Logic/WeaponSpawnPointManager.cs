@@ -1,16 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Photon.Realtime;
 using UnityEngine;
 
-public class SpawnPointManager : MonoBehaviour
+public class WeaponSpawnPointManager : MonoBehaviour
 {
-    public static SpawnPointManager Instance;
-    [SerializeField] private List<Transform> spawnPoints;
+    public static WeaponSpawnPointManager Instance;
+    public List<Transform> spawnPoints;
+
 
     private void Start()
     {
+        
         Instance = this;
         for (int i = 0; i < transform.childCount; i++)
         {
