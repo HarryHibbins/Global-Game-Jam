@@ -643,6 +643,7 @@ MonoBehaviour:
   sb: {fileID: 998861207}
   pm: {fileID: 6517960187748061510}
   pv: {fileID: 0}
+  game_mode: 1
 --- !u!4 &53141999
 Transform:
   m_ObjectHideFlags: 0
@@ -5078,7 +5079,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1304534
+  m_Name: pb_Mesh232798
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6333,7 +6334,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1304166
+  m_Name: pb_Mesh232422
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7081,7 +7082,7 @@ GameObject:
   - component: {fileID: 551053521}
   - component: {fileID: 551053520}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: MapText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7103,8 +7104,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 141.54028, y: -54.286682}
-  m_SizeDelta: {x: 283.0805, y: 51.7749}
+  m_AnchoredPosition: {x: 371.71594, y: -54.286682}
+  m_SizeDelta: {x: 743.4317, y: 51.7749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551053520
 MonoBehaviour:
@@ -8359,7 +8360,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1304984
+  m_Name: pb_Mesh233270
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9660,7 +9661,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1306118
+  m_Name: pb_Mesh234416
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11480,7 +11481,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1305680
+  m_Name: pb_Mesh233970
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13174,6 +13175,7 @@ GameObject:
   - component: {fileID: 998861208}
   - component: {fileID: 998861210}
   - component: {fileID: 998861209}
+  - component: {fileID: 998861211}
   m_Layer: 5
   m_Name: ScoreBoard
   m_TagString: Scoreboard
@@ -13241,6 +13243,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998861207}
   m_CullTransparentMesh: 1
+--- !u!114 &998861211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998861207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44948ea8942510545844c3707493b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modeText: {fileID: 1604574945}
+  mapText: {fileID: 551053520}
 --- !u!1 &1000410481
 GameObject:
   m_ObjectHideFlags: 0
@@ -17227,7 +17243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1195623864
 Transform:
   m_ObjectHideFlags: 0
@@ -17994,7 +18010,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1305280
+  m_Name: pb_Mesh233566
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21770,7 +21786,7 @@ GameObject:
   - component: {fileID: 1604574946}
   - component: {fileID: 1604574945}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GamemodeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21792,8 +21808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 141.54028, y: -25.88745}
-  m_SizeDelta: {x: 283.0805, y: 51.7749}
+  m_AnchoredPosition: {x: 371.71594, y: -25.88745}
+  m_SizeDelta: {x: 743.4317, y: 51.7749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1604574945
 MonoBehaviour:
@@ -22440,7 +22456,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -25346,7 +25362,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1305574
+  m_Name: pb_Mesh233864
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29534,7 +29550,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -34282,7 +34298,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6623212824421617032
 MonoBehaviour:
   m_ObjectHideFlags: 0

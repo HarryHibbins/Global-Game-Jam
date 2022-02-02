@@ -629,6 +629,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f8ae323b7139f4a41ba7173bfee366de, type: 2}
   - {fileID: 11400000, guid: 2132cf17c3811bc4a9e76be3020df2ec, type: 2}
   weaponScript: {fileID: 8869223960032138883}
+  gameLogic: {fileID: 0}
   currentWeapon: 0
   PV: {fileID: 0}
 --- !u!1 &3573684160796221757

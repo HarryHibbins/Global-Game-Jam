@@ -10,6 +10,7 @@ public class WeaponSwitcher : MonoBehaviour
 {
     public List<WeaponStats> weaponList;
     public WeaponScript weaponScript;
+    public GameLogic gameLogic;
 
     public int currentWeapon = 0;
 
@@ -18,10 +19,10 @@ public class WeaponSwitcher : MonoBehaviour
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        gameLogic = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
 
         if (PV.IsMine)
         {
-            
             foreach (var weapon in weaponList)
             {
                 if (weapon.hasWeapon)
@@ -46,7 +47,14 @@ public class WeaponSwitcher : MonoBehaviour
         weaponList[randomNum].hasWeapon = true;
         
         yield return new WaitForSeconds(.1f);
-        
+
+        if (gameLogic.game_mode == 0)
+        {
+            foreach (WeaponStats ws in weaponList)
+            {
+                ws.hasWeapon = true;
+            }
+        }
         currentWeapon = randomNum;
         UpdateGun();
             

@@ -169,22 +169,22 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         {
             if (gamemode1Button.isOn)
             {
-                PhotonNetwork.LoadLevel("Game");
+                PhotonNetwork.LoadLevel("MapOne - Deathmatch");
             }
             else if (gamemode2Button.isOn)
             {
-                //Play map 1 looter shooter
+                PhotonNetwork.LoadLevel("MapOne - LooterShooter");
             }
         }
         else if (map2Button.isOn)
         {
             if (gamemode1Button.isOn)
             {
-                //Play map 2 deathmatch
+                PhotonNetwork.LoadLevel("MapTwo - Deathmatch");
             }
             else if (gamemode2Button.isOn)
             {
-                //Play map 2 looter shooter
+                PhotonNetwork.LoadLevel("MapTwo - LooterShooter");
             }
         }
         

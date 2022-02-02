@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Lobby.unity
     guid: 2dc424f424aad2b489c43b347e3b63e9
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/MapOne - Deathmatch.unity
     guid: e59476b1c64056b458537b832f6739fe
+  - enabled: 1
+    path: Assets/Scenes/MapOne - LooterShooter.unity
+    guid: 2352fbee1795dc54f891cc90e9a0c23f
+  - enabled: 1
+    path: Assets/Scenes/MapTwo - Deathmatch.unity
+    guid: 74b79c2a7f3e623419e074d7a0caacb3
+  - enabled: 1
+    path: Assets/Scenes/MapTwo - LooterShooter.unity
+    guid: 34bc6e6617c326548bb63f42a8dddcf7
   m_configObjects: {}

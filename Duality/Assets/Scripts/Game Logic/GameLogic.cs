@@ -6,6 +6,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using Photon.Pun.UtilityScripts;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviourPunCallbacks
 {
@@ -34,6 +36,8 @@ public class GameLogic : MonoBehaviourPunCallbacks
 
     public PhotonView pv;
 
+    public int game_mode = 0; //0 = dm, 1 = ls
+
     private void Awake()
     {
 
@@ -42,6 +46,24 @@ public class GameLogic : MonoBehaviourPunCallbacks
     private void Start()
     {
         pv = GetComponent<PhotonView>();
+        if (game_mode == 0)
+        {
+            sb.GetComponent<Scoreboard>().modeText.text = "Deathmatch";
+        }
+        else if (game_mode == 1)
+        {
+            sb.GetComponent<Scoreboard>().modeText.text = "Looter Shooter";
+        }
+
+        if (SceneManager.GetActiveScene().name.Contains("MapOne"))
+        {
+            sb.GetComponent<Scoreboard>().mapText.text = "Octagon";
+        }
+        else if (SceneManager.GetActiveScene().name.Contains("MapTwo"))
+        {
+            sb.GetComponent<Scoreboard>().mapText.text = "Nuketown 2022";
+        }
+
 
         Debug.Log("SPAWN");
         foreach (Player p in PhotonNetwork.PlayerList)
