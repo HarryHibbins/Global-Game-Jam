@@ -43,6 +43,8 @@ MonoBehaviour:
   - RPC_Shoot
   - RPC_Explode
   - RPC_AddKillfeed
+  - RPC_PickupHealth
+  - RPC_PickupWeapon
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
