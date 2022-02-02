@@ -32,6 +32,8 @@ public class WeaponStats : ScriptableObject
     [Header("------------Weapon Model------------")]
     public GameObject gunModel;
     public Sprite icon;
+    public AudioClip shootSound;
+    public AudioClip reloadSound;
 
     [Header("------------Projectile Ammo------------")]
     public GameObject projectileAmmo;

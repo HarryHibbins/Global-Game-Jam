@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;                               // the rigidbody
 
     public GameObject weaponHolder;
+    public AudioSource audioSource;
+    public List<AudioClip> footsteps;
 
     // variables used for checking if the player is grounded
     [Header("Ground Detection")]
@@ -220,7 +222,34 @@ public class PlayerMovement : MonoBehaviour
 
         xRot = Mathf.Clamp(xRot, -90f, 90f);                                                            // clamp xRot values so players cant snap their backs
 
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            crouching = true;
+            sprinting = false;
+            if (moveSpeed > (sprintSpeed * 0.9f))
+            {
+                Debug.Log("Made it to function call!");
+                sliding = true;
+                PlayerSlide();
+            }
+        }
         if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            crouching = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            crouching = false;
+            sprinting = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            sprinting = false;
+        }
+
+        /*if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             if (!crouching)
             {
@@ -241,7 +270,7 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift)) 
+        if (Input.GetKeyDown(KeyCode.LeftShift)) 
         {
             if (!sprinting)
             {
@@ -254,7 +283,7 @@ public class PlayerMovement : MonoBehaviour
                 sprinting = false;
             }
 
-        }
+        }*/
     }
 
     private void FixedUpdate()
@@ -266,8 +295,32 @@ public class PlayerMovement : MonoBehaviour
 
         if (!GetComponent<PlayerController>().isPaused) 
         {
-
             MovePlayer();
+
+            if (rb.velocity.magnitude > 2 && rb.velocity.magnitude < 7 && !audioSource.isPlaying)
+            {
+                Debug.Log("Walking");
+                audioSource.clip = footsteps[0];
+                audioSource.volume = Random.Range(0.6f, 0.8f);
+                audioSource.pitch = Random.Range(0.8f, 1.1f);
+                audioSource.Play();
+            }
+            if (rb.velocity.magnitude < 2 && rb.velocity.magnitude > 1 && !audioSource.isPlaying)
+            {
+                Debug.Log("Crouching");
+                audioSource.clip = footsteps[0];
+                audioSource.volume = Random.Range(0.3f, 0.5f);
+                audioSource.pitch = Random.Range(0.5f, 0.8f);
+                audioSource.Play();
+            }
+            if (rb.velocity.magnitude > 7  && !audioSource.isPlaying)
+            {
+                Debug.Log("Sprinting");
+                audioSource.clip = footsteps[0];
+                audioSource.volume = Random.Range(0.9f, 1.1f);
+                audioSource.pitch = Random.Range(1.1f, 1.4f);
+                audioSource.Play();
+            }
 
         }                                                                      // called in fixedupdate because rigidbodies?
     }

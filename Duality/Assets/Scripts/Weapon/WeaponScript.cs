@@ -42,6 +42,9 @@ public class WeaponScript : MonoBehaviour
     //Networking
     private PhotonView PV;
 
+    public AudioSource audioSource;
+    public AudioClip hitSound;
+
     private void Awake()
     {
         bulletsLeft = stats.magazineSize;
@@ -51,6 +54,7 @@ public class WeaponScript : MonoBehaviour
         PV = GetComponent<PhotonView>();
         playerController = GetComponentInParent<PlayerController>();
         startFOV = playerController.ps.FOV;
+        audioSource = GetComponent<AudioSource>();
 
         foreach (Transform child in transform.root)
         {
@@ -328,7 +332,9 @@ public class WeaponScript : MonoBehaviour
             }
         }
 
-        
+        /*audioSource.clip = stats.shootSound;
+        audioSource.PlayOneShot(stats.shootSound);*/
+        PlaySound();
 
         if (stats.isHitscan)
         {
@@ -344,6 +350,13 @@ public class WeaponScript : MonoBehaviour
                 rayHit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(stats.damage, stats.weaponName);
                 PV.RPC("RPC_Shoot", RpcTarget.All, rayHit.point, rayHit.normal);
 
+                if (rayHit.collider.tag == "Player")
+                {
+                    audioSource.clip = stats.shootSound;
+                    audioSource.volume = 1.5f;
+                    audioSource.PlayOneShot(hitSound);
+                }
+                
 
             }
         }
@@ -422,6 +435,18 @@ public class WeaponScript : MonoBehaviour
         Instantiate(explosionGFX, pos, Quaternion.identity);
     }
 
+    public void PlaySound()
+    {
+        PV.RPC("RPC_PlaySound", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void RPC_PlaySound()
+    {
+        AudioSource ads = GetComponent<AudioSource>();
+        ads.PlayOneShot(stats.shootSound);
+    }
+
     private void ResetShot()
     {
         readyToShoot = true;
@@ -431,6 +456,8 @@ public class WeaponScript : MonoBehaviour
     {
         if (PV.IsMine)
         {
+            audioSource.clip = stats.shootSound;
+            audioSource.PlayOneShot(stats.reloadSound);
             animator.applyRootMotion = false;
             reloading = true;
             StartCoroutine(ReloadAnim());
@@ -440,6 +467,7 @@ public class WeaponScript : MonoBehaviour
 
     private void ReloadFinished()
     {
+        audioSource.Stop();
         animator.applyRootMotion = true;
         bulletsLeft = stats.magazineSize;
         reloading = false;

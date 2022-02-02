@@ -29,6 +29,7 @@ MonoBehaviour:
   usesShells: 0
   usesScope: 0
   isHitscan: 1
+  hasWeapon: 1
   recoilX: -1.5
   recoilY: 1
   recoilZ: 0.15
@@ -39,6 +40,8 @@ MonoBehaviour:
   returnSpeed: 2
   gunModel: {fileID: 6513462501660768856, guid: a653d6e7e5639d74a9c0aa09d91efc68, type: 3}
   icon: {fileID: 21300000, guid: 80c0a2c9f03ba2440b4f2519a852d583, type: 3}
+  shootSound: {fileID: 8300000, guid: 9ba795b6ab227574d9387f4eda62cb6d, type: 3}
+  reloadSound: {fileID: 8300000, guid: 43355ac881c4664408b19b2228351f79, type: 3}
   projectileAmmo: {fileID: 0}
   shootForce: 0
   upwardForce: 0
