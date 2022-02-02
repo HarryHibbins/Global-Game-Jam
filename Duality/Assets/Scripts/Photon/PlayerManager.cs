@@ -40,14 +40,15 @@ public class PlayerManager : MonoBehaviour
     {
         Transform spawnPoint = SpawnPointManager.Instance.getRandomSpawnPoint();
         controller = PhotonNetwork.Instantiate("PlayerController", spawnPoint.position, spawnPoint.rotation, 0, new object[] {PV.ViewID});
+        FindObjectOfType<AudioManager>().Play("Respawn");
     }
 
     public void Die()
     {
+        FindObjectOfType<AudioManager>().Play("PlayerDeath");
         //Destroy the player
         PhotonNetwork.Destroy(controller);
         //Respawn
         createController();
-        
     }
 }
