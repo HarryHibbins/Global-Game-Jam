@@ -10547,6 +10547,66 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ARShot
+    clip: {fileID: 8300000, guid: 5383730959175984d9f475d6cffed161, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BurstShot
+    clip: {fileID: 8300000, guid: 9ba795b6ab227574d9387f4eda62cb6d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DMRShot
+    clip: {fileID: 8300000, guid: a2ca7250ba87dd245997c2cb3113b67e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OnePointFive
+    clip: {fileID: 8300000, guid: 95c61ad7693b72b478e1ad20b197f0b1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OneSecond
+    clip: {fileID: 8300000, guid: 43355ac881c4664408b19b2228351f79, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PistolReload
+    clip: {fileID: 8300000, guid: 73211aec7d40b5c4996434e1fb78eadb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShotgunReload
+    clip: {fileID: 8300000, guid: 23f74a5924b83134c934daee463a3b8c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShotgunShot
+    clip: {fileID: 8300000, guid: 97537f6ff3a7b7b43982738fde1bba19, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SMGReload
+    clip: {fileID: 8300000, guid: aec60948913434549880b6f03e039ccc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SniperReload
+    clip: {fileID: 8300000, guid: cec22c7ce72c70649ba7c24f00a08312, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &755884239
 Transform:
   m_ObjectHideFlags: 0
